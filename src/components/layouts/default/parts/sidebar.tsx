@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import ConferenceComponent from './sidebar__parts/conference';
 
 const SidebarComponent: React.FC = () => {
   const SidebarWrapper = styled.div`
@@ -9,7 +10,11 @@ const SidebarComponent: React.FC = () => {
     padding: 24px 0;
   `;
 
-  return <SidebarWrapper></SidebarWrapper>;
+  return (
+    <SidebarWrapper>
+      <ConferenceComponent />
+    </SidebarWrapper>
+  );
 };
 
 export default SidebarComponent;
