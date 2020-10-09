@@ -4,8 +4,6 @@ import ConferenceComponent from './sidebar__parts/conference';
 
 const SidebarComponent: React.FC = () => {
   const SidebarWrapper = styled.div`
-    display: flex;
-    justify-content: center;
     width: 82px;
     height: calc(100vh - 38px);
     background: var(--secondary);
@@ -14,7 +12,8 @@ const SidebarComponent: React.FC = () => {
 
   return (
     <SidebarWrapper>
-      <ConferenceComponent />
+      <ConferenceComponent now={true} />
+      <ConferenceComponent time="12:00" />
     </SidebarWrapper>
   );
 };

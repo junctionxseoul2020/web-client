@@ -6,9 +6,12 @@ interface ConferenceProps {
   time?: string;
 }
 
-const ConferenceComponent: React.FC<ConferenceProps> = () => {
+const ConferenceComponent: React.FC<ConferenceProps> = props => {
   const ConferenceWrapper = styled.div`
     text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
   `;
   const ConferenceCircle = styled.div`
     width: 54px;
@@ -17,6 +20,16 @@ const ConferenceComponent: React.FC<ConferenceProps> = () => {
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     background: var(--white);
     color: var(--primary);
+  `;
+  const ConferenceNowCircle = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-image: linear-gradient(138deg, #fffdd6 9%, #b2fb5c 58%, var(--green) 88%);
+    border-radius: 50%;
   `;
   const ConferenceTime = styled.span`
     display: inline-block;
@@ -29,11 +42,27 @@ const ConferenceComponent: React.FC<ConferenceProps> = () => {
     font-size: 12px;
     font-weight: 600;
     margin-top: 8px;
+    ${props.now &&
+    `
+      color: var(--primary);
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+      background-image: linear-gradient(144deg, #fffdd6 -4%, #b2fb5c 46%, var(--green) 77%);
+    `}
   `;
   return (
     <ConferenceWrapper>
-      <ConferenceCircle></ConferenceCircle>
-      <ConferenceTime>12:12</ConferenceTime>
+      <div>
+        {props.now ? (
+          <ConferenceNowCircle>
+            <ConferenceCircle></ConferenceCircle>
+          </ConferenceNowCircle>
+        ) : (
+          <ConferenceCircle></ConferenceCircle>
+        )}
+        {(props.now || props.time) && (
+          <ConferenceTime>{props.now ? 'NOW' : props.time}</ConferenceTime>
+        )}
+      </div>
     </ConferenceWrapper>
   );
 };
