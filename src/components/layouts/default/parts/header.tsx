@@ -6,14 +6,27 @@ const HeaderComponent: React.FC = () => {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
     height: 38px;
+    background: var(--primary);
+    padding: 0 15px;
   `;
+
   const UserSection = styled.div``;
+
+  const UserProfilePicture = styled.img`
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  `;
+
   return (
     <HeaderWrapper>
       <div></div>
-      <div></div>
-      <div></div>
+      <div>search</div>
+      <UserSection>
+        <UserProfilePicture src="https://via.placeholder.com/150" />
+      </UserSection>
     </HeaderWrapper>
   );
 };
