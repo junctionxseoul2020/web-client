@@ -19,15 +19,34 @@ const HeaderComponent: React.FC = () => {
     display: flex;
     align-items: center;
     .icon-alarm {
+      cursor: pointer;
       margin-right: 14px;
     }
   `;
-  const UserSection = styled.div``;
+
+  // Clickable Section
+  const UserSection = styled.div`
+    position: relative;
+    height: 30px;
+  `;
 
   const UserProfilePicture = styled.img`
     width: 30px;
     height: 30px;
     border-radius: 50%;
+  `;
+
+  const UserProfileBadge = styled.div`
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 50%;
+    &.active {
+      background: #14ff00;
+    }
   `;
 
   return (
@@ -37,9 +56,12 @@ const HeaderComponent: React.FC = () => {
         <Alarm />
         <HeaderSearch />
       </SearchSection>
-      <UserSection>
-        <UserProfilePicture src="https://via.placeholder.com/150" />
-      </UserSection>
+      <div>
+        <UserSection>
+          <UserProfilePicture src="https://via.placeholder.com/150" />
+          <UserProfileBadge className="active" />
+        </UserSection>
+      </div>
     </HeaderWrapper>
   );
 };
