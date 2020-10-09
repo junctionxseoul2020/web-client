@@ -1,9 +1,15 @@
 import React from 'react';
-// import App from "next/app";
-import type { AppProps /*, AppContext */ } from 'next/app';
+import type { AppProps } from 'next/app';
+
+import { CacheProvider } from '@emotion/core';
+import { cache } from 'emotion'; // Use only { cache } from 'emotion'. Don't use { css }.
 
 const MyApp = ({ Component, pageProps }: AppProps): React.ReactNode => {
-  return <Component {...pageProps} />;
+  return (
+    <CacheProvider value={cache}>
+      <Component {...pageProps} />
+    </CacheProvider>
+  );
 };
 
 // Only uncomment this method if you have blocking data requirements for
