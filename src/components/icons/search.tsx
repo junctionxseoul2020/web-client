@@ -1,9 +1,15 @@
 import React from 'react';
 
-const Icon: React.FC = () => {
+const SearchIcon: React.FC = () => {
   return (
     <>
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        className="icon-search"
+      >
         <g>
           <g>
             <path
@@ -19,4 +25,4 @@ const Icon: React.FC = () => {
   );
 };
 
-export default Icon;
+export default SearchIcon;
