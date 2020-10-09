@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
+import HeaderSearch from './search';
+
 const HeaderComponent: React.FC = () => {
   const HeaderWrapper = styled.div`
     display: flex;
@@ -23,7 +25,9 @@ const HeaderComponent: React.FC = () => {
   return (
     <HeaderWrapper>
       <div></div>
-      <div>search</div>
+      <div>
+        <HeaderSearch />
+      </div>
       <UserSection>
         <UserProfilePicture src="https://via.placeholder.com/150" />
       </UserSection>
