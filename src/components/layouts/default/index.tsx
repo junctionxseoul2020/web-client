@@ -5,14 +5,18 @@ import Header from './parts/header';
 import Sidebar from './parts/sidebar';
 
 const DefaultLayout: React.FC = ({ children }) => {
+  const LayoutWrapper = styled.div`
+    display: grid;
+    grid-template-columns: 82px auto;
+  `;
   const ContentWrapper = styled.div``;
   return (
     <>
       <Header />
-      <div>
+      <LayoutWrapper>
         <Sidebar />
         <ContentWrapper>{children}</ContentWrapper>
-      </div>
+      </LayoutWrapper>
     </>
   );
 };
