@@ -2,7 +2,13 @@ import React from 'react';
 
 const Alarm: React.FC = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      className="icon-alarm"
+    >
       <path fill="#fff" d="M11 8h2v4h3v2h-5z" transform="translate(-3 -3)" />
       <path
         fill="#fff"

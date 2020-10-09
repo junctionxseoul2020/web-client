@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import HeaderSearch from './search';
+import Alarm from '@/components/icons/alarm';
 
 const HeaderComponent: React.FC = () => {
   const HeaderWrapper = styled.div`
@@ -14,6 +15,13 @@ const HeaderComponent: React.FC = () => {
     padding: 0 15px;
   `;
 
+  const SearchSection = styled.div`
+    display: flex;
+    align-items: center;
+    .icon-alarm {
+      margin-right: 14px;
+    }
+  `;
   const UserSection = styled.div``;
 
   const UserProfilePicture = styled.img`
@@ -25,9 +33,10 @@ const HeaderComponent: React.FC = () => {
   return (
     <HeaderWrapper>
       <div></div>
-      <div>
+      <SearchSection>
+        <Alarm />
         <HeaderSearch />
-      </div>
+      </SearchSection>
       <UserSection>
         <UserProfilePicture src="https://via.placeholder.com/150" />
       </UserSection>
