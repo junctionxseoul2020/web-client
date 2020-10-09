@@ -12,6 +12,7 @@ const HeaderSearch: React.FC = () => {
     height: 24px;
     border-radius: 6px;
     background-color: var(--white);
+    cursor: pointer;
   `;
 
   const Placeholder = styled.span`
