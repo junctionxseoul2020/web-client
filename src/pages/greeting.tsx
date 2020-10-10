@@ -18,10 +18,15 @@ const GreetingContent = styled.div`
 
 const GreetingMyWrapper = styled.div`
   margin-top: 100px;
+  margin-bottom: 50px;
   text-align: center;
 `;
 const GreetingTeamGrid = styled.div`
   width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 25px;
 `;
 
 const GreetingImgWrapper = styled.div<{ width?: string; height?: string }>`
@@ -31,7 +36,6 @@ const GreetingImgWrapper = styled.div<{ width?: string; height?: string }>`
   background-color: var(--white);
   overflow: hidden;
   margin: 0 auto;
-  margin-bottom: 20px;
 `;
 const GreetingImg = styled.img`
   max-width: 100%;
@@ -40,6 +44,7 @@ const GreetingImg = styled.img`
 `;
 
 const GreetingMyTitle = styled.p`
+  margin-top: 20px;
   font-size: 16px;
   color: #707070;
   margin-bottom: 8px;
@@ -47,6 +52,21 @@ const GreetingMyTitle = styled.p`
 const GreetingMyDescription = styled.p`
   font-size: 13px;
   color: #b9b9b9;
+`;
+const GreetingTeamItem = styled.div`
+  width: 100%;
+  text-align: center;
+`;
+const GreetingTeamSubText = styled.span`
+  display: block;
+  margin-top: 10px;
+  color: #707070;
+  font-size: 12px;
+  line-height: 15px;
+  .sub {
+    color: #b9b9b9;
+    display: block;
+  }
 `;
 
 const GreetingPage: NextPage<{ users: User[]; channels: Channel[] }> = ({ users, channels }) => {
@@ -66,7 +86,35 @@ const GreetingPage: NextPage<{ users: User[]; channels: Channel[] }> = ({ users,
             </GreetingMyTitle>
             <GreetingMyDescription>Team Zerohouse / design team</GreetingMyDescription>
           </GreetingMyWrapper>
-          <GreetingTeamGrid></GreetingTeamGrid>
+          <GreetingTeamGrid>
+            <GreetingTeamItem>
+              <GreetingImgWrapper width="80px" height="80px">
+                <GreetingImg src="https://via.placeholder.com/200" />
+              </GreetingImgWrapper>
+              <GreetingTeamSubText>
+                User
+                <span className="sub">design team</span>
+              </GreetingTeamSubText>
+            </GreetingTeamItem>
+            <GreetingTeamItem>
+              <GreetingImgWrapper width="80px" height="80px">
+                <GreetingImg src="https://via.placeholder.com/200" />
+              </GreetingImgWrapper>
+              <GreetingTeamSubText>
+                User
+                <span className="sub">design team</span>
+              </GreetingTeamSubText>
+            </GreetingTeamItem>
+            <GreetingTeamItem>
+              <GreetingImgWrapper width="80px" height="80px">
+                <GreetingImg src="https://via.placeholder.com/200" />
+              </GreetingImgWrapper>
+              <GreetingTeamSubText>
+                User
+                <span className="sub">design team</span>
+              </GreetingTeamSubText>
+            </GreetingTeamItem>
+          </GreetingTeamGrid>
         </GreetingContent>
       </GreetingContentWrapper>
     </Chat>
