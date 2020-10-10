@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import InfoIcon from '@/components/icons/info';
+import UserAdd from '@/components/icons/user-add';
 
 const ChannelInfomationHeader: React.FC = () => {
   const InfoHeaderWrapper = styled.div`
@@ -24,13 +26,23 @@ const ChannelInfomationHeader: React.FC = () => {
     line-height: 16px;
   `;
 
+  const RightSide = styled.div`
+    .icon-userAdd {
+      margin-left: 14px;
+      margin-right: 14px;
+    }
+  `;
+
   return (
     <InfoHeaderWrapper>
       <div>
         <ChannelName>#channel_name</ChannelName>
         <ChannelDesc>Add a topic</ChannelDesc>
       </div>
-      <div>asd</div>
+      <RightSide>
+        <UserAdd />
+        <InfoIcon />
+      </RightSide>
     </InfoHeaderWrapper>
   );
 };
