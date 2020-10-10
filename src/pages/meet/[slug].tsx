@@ -2,7 +2,6 @@ import React from 'react';
 import { NextPage } from 'next';
 
 import ChatLayout from '@/components/layouts/chat';
-import ChatSeperator from '@/components/chats/seperator';
 import ChatComponent from '@/components/chats/chat';
 import ChatInputComponent from '@/components/chats/input';
 import MeetHeader from '@/components/meet/header';

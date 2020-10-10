@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import SendIcon from '../icons/send';
 
 type Props = {
-  onSubmit: (message: string) => void;
+  onSubmit?: (message: string) => void;
 };
 const ChatInputComponent: React.FC<Props> = ({ onSubmit }) => {
   const [value, setValue] = useState();
