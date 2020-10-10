@@ -14,8 +14,11 @@
     "emotion-server": "^10.0.27",
     "next": "9.5.4",
     "react": "16.13.1",
+    "react-datepicker": "^3.2.2",
     "react-dom": "16.13.1",
     "react-scrollable-feed": "^1.2.0",
+    "react-select": "^3.1.0",
+    "recoil": "^0.0.13",
     "socket.io-client": "^2.3.1",
     "tsconfig-paths-webpack-plugin": "^3.3.0"
   },

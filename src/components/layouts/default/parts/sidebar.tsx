@@ -5,14 +5,16 @@ import Comment from '@/components/icons/comment';
 import LogOff from '@/components/icons/logoff';
 import Coffee from '@/components/icons/coffee';
 import PlusIcon from '@/components/icons/plus';
+import { Modal, useModal } from '@/hooks/useModal';
 
 const SidebarComponent: React.FC = () => {
+  const { openModal } = useModal();
   return (
     <SidebarWrapper>
       <ItemComponent icon={<Comment />} now={true} />
       <ItemComponent icon={<Comment />} time="12:00" />
       <ItemComponent href="/lounge" icon={<Coffee />} />
-      <ItemComponent icon={<PlusIcon />} />
+      <ItemComponent icon={<PlusIcon />} onClick={() => openModal(Modal.AddConference)} />
       <SidebarBottom>
         <ItemComponent icon={<LogOff />} />
       </SidebarBottom>

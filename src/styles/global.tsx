@@ -46,7 +46,9 @@ const globalStyles = (
       }
 
       form,
-      input {
+      input,
+      textarea,
+      button {
         font-family: inherit;
       }
 
