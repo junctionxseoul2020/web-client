@@ -62,14 +62,10 @@ const Sidebar: React.FC = () => {
         <GroupTitle>
           <CdownIcon /> Channels
         </GroupTitle>
-        <ChannelItem href="#" active={true}>
-          asd
-        </ChannelItem>
-        <ChannelItem href="#">asd</ChannelItem>
-        <ChannelItem href="#">asd</ChannelItem>
-        <ChannelItem href="#">asd</ChannelItem>
-        <ChannelItem href="#">asd</ChannelItem>
-        <ChannelAdd href="#">Add Channels</ChannelAdd>
+        <ChannelItem href="/channel/hello">hello</ChannelItem>
+        <ChannelItem href="/channel/query">query</ChannelItem>
+        <ChannelItem href="/channel/params">params</ChannelItem>
+        <ChannelAdd>Add Channels</ChannelAdd>
       </GroupWrapper>
       <GroupWrapper>
         <GroupTitle>

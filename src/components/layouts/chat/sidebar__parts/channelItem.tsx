@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const ChannelItem: React.FC<{ href: string; active?: boolean }> = props => {
+  const router = useRouter();
   const ChannelLinkItem = styled.a`
     display: flex;
     padding: 4px 22px;
@@ -10,7 +12,7 @@ const ChannelItem: React.FC<{ href: string; active?: boolean }> = props => {
     font-size: 15px;
     line-height: 19px;
     text-decoration: none;
-    ${props.active &&
+    ${(props.active || router.asPath === props.href) &&
     `
       background: var(--primary);
       color: #fff;
@@ -24,7 +26,7 @@ const ChannelItem: React.FC<{ href: string; active?: boolean }> = props => {
     border-radius: 4px;
     background: #dee2eb;
     margin-right: 10px;
-    ${props.active &&
+    ${(props.active || router.asPath === props.href) &&
     `
       background: var(--primary);
       color: #fff;
