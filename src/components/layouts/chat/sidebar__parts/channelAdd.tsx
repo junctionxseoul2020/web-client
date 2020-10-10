@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Link from 'next/link';
 
-const ChannelAdd: React.FC<{ href: string }> = props => {
+const ChannelAdd: React.FC<{ href?: string }> = props => {
   const ChannelLinkItem = styled.a`
     display: flex;
     padding: 4px 22px;
@@ -10,6 +9,7 @@ const ChannelAdd: React.FC<{ href: string }> = props => {
     font-size: 15px;
     line-height: 19px;
     text-decoration: none;
+    cursor: pointer;
   `;
   const ChannelSharpBox = styled.div`
     text-align: center;
@@ -21,12 +21,10 @@ const ChannelAdd: React.FC<{ href: string }> = props => {
     margin-right: 10px;
   `;
   return (
-    <Link href={props.href} passHref>
-      <ChannelLinkItem>
-        <ChannelSharpBox>+</ChannelSharpBox>
-        {props.children}
-      </ChannelLinkItem>
-    </Link>
+    <ChannelLinkItem>
+      <ChannelSharpBox>+</ChannelSharpBox>
+      {props.children}
+    </ChannelLinkItem>
   );
 };
 
