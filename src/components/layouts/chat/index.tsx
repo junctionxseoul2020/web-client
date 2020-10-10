@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
+import ScrollableFeed from 'react-scrollable-feed';
 
 import DefaultLayout from '@/components/layouts/default';
 import Sidebar from './sidebar';
@@ -18,7 +19,6 @@ const Chat: React.FC<{ name: string }> = ({ children, name }) => {
     overflow: auto;
   `;
   const ChatInnerContent = styled.div`
-    overflow: auto;
     padding-bottom: 100px;
   `;
 
@@ -29,7 +29,9 @@ const Chat: React.FC<{ name: string }> = ({ children, name }) => {
         <div>
           <ChannelInfomationHeader name={name} />
           <ChatContent>
-            <ChatInnerContent>{children}</ChatInnerContent>
+            <ScrollableFeed>
+              <ChatInnerContent>{children}</ChatInnerContent>
+            </ScrollableFeed>
           </ChatContent>
         </div>
       </ChatWrapper>
