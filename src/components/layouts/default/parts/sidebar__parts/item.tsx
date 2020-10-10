@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 
@@ -7,11 +7,12 @@ interface ConferenceProps {
   icon?: React.ReactNode;
   now?: boolean;
   time?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 const ConferenceComponent: React.FC<ConferenceProps> = props => {
   const LinkItem = (
-    <ConferenceWrapper>
+    <ConferenceWrapper onClick={props.onClick}>
       <div>
         {props.now ? (
           <ConferenceNowCircle>
