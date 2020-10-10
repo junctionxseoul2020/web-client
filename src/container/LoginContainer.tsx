@@ -7,8 +7,8 @@ export const LoginContainer: NextPage = ({ children, ...pageProps }) => {
   const { user, userId, setLoggedOut, setLoggedIn } = useAuth();
 
   useEffect(() => {
-    const localUser: User = JSON.parse(localStorage.getItem('work_u'));
-    if (!localUser.id) {
+    const localUser: User | null = JSON.parse(localStorage.getItem('work_u'));
+    if (!localUser?.id) {
       setLoggedOut(undefined);
     }
     setLoggedIn(localUser);
