@@ -8,41 +8,6 @@ import ChannelAdd from './sidebar__parts/channelAdd';
 import UserItem from './sidebar__parts/userItem';
 
 const Sidebar: React.FC = () => {
-  const SidebarWrapper = styled.div`
-    width: 100%;
-    border-right: 1px solid #e0e2ea;
-  `;
-  const TitleSection = styled.div`
-    display: flex;
-    align-items: center;
-    height: 64px;
-    border-bottom: 1px solid #e0e2ea;
-    padding: 0 16px;
-    svg {
-      margin-left: 10px;
-    }
-  `;
-  const Title = styled.span`
-    font-size: 15px;
-    font-weight: 700;
-  `;
-
-  const HeaderWrapper = styled.div`
-    padding: 11px 0;
-  `;
-
-  const GroupWrapper = styled.div`
-    padding: 10px 0;
-  `;
-  const GroupTitle = styled.div`
-    color: var(--dark);
-    display: block;
-    padding: 7px 16px;
-    font-size: 15px;
-    font-weight: normal;
-    cursor: pointer;
-  `;
-
   return (
     <SidebarWrapper>
       <TitleSection>
@@ -78,5 +43,40 @@ const Sidebar: React.FC = () => {
     </SidebarWrapper>
   );
 };
+
+const SidebarWrapper = styled.div`
+  width: 100%;
+  border-right: 1px solid #e0e2ea;
+`;
+const TitleSection = styled.div`
+  display: flex;
+  align-items: center;
+  height: 64px;
+  border-bottom: 1px solid #e0e2ea;
+  padding: 0 16px;
+  svg {
+    margin-left: 10px;
+  }
+`;
+const Title = styled.span`
+  font-size: 15px;
+  font-weight: 700;
+`;
+
+const HeaderWrapper = styled.div`
+  padding: 11px 0;
+`;
+
+const GroupWrapper = styled.div`
+  padding: 10px 0;
+`;
+const GroupTitle = styled.div`
+  color: var(--dark);
+  display: block;
+  padding: 7px 16px;
+  font-size: 15px;
+  font-weight: normal;
+  cursor: pointer;
+`;
 
 export default Sidebar;
