@@ -15,11 +15,25 @@ const ChatInputComponent: React.FC<Props> = ({ onSubmit }) => {
   const handleChange = useCallback(event => {
     setValue(event.target.value);
   }, []);
+  const handleKeyDown = useCallback(
+    e => {
+      // Shift 키를 누르지 않고 엔터를 누르면
+      if (!e.shiftKey && e.key === 'Enter') {
+        onSubmit(value);
+      }
+    },
+    [onSubmit, value],
+  );
 
   return (
     <InputWrapper>
       <InputSection>
-        <Input placeholder="Message #channel_here" value={value} onChange={handleChange} />
+        <Input
+          placeholder="Message #channel_here"
+          value={value}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+        />
         <SendButton onClick={handleSubmit}>
           <SendIcon />
         </SendButton>
