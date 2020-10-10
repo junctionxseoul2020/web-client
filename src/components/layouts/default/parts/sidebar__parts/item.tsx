@@ -11,24 +11,42 @@ interface ConferenceProps {
 }
 
 const ConferenceComponent: React.FC<ConferenceProps> = props => {
-  const handleClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = e => {
-    if (props.onClick) props.onClick(e); // works
-  };
   const LinkItem = (
-    <ConferenceWrapper onClick={handleClick}>
-      <div>
-        {props.now ? (
-          <ConferenceNowCircle>
-            <ConferenceCircle>{props.icon}</ConferenceCircle>
-          </ConferenceNowCircle>
-        ) : (
-          <ConferenceCircle>{props.icon}</ConferenceCircle>
-        )}
-        {(props.now || props.time) && (
-          <ConferenceTime now={props.now}>{props.now ? 'NOW' : props.time}</ConferenceTime>
-        )}
-      </div>
-    </ConferenceWrapper>
+    <>
+      {props.onClick ? (
+        <ConferenceWrapper onClick={props.onClick}>
+          <div>
+            {props.now ? (
+              <ConferenceNowCircle>
+                <ConferenceCircle>{props.icon}</ConferenceCircle>
+              </ConferenceNowCircle>
+            ) : (
+              <ConferenceCircle>{props.icon}</ConferenceCircle>
+            )}
+            {(props.now || props.time) && (
+              <ConferenceTime now={props.now}>{props.now ? 'NOW' : props.time}</ConferenceTime>
+            )}
+          </div>
+        </ConferenceWrapper>
+      ) : (
+        <>
+          <ConferenceWrapper>
+            <div>
+              {props.now ? (
+                <ConferenceNowCircle>
+                  <ConferenceCircle>{props.icon}</ConferenceCircle>
+                </ConferenceNowCircle>
+              ) : (
+                <ConferenceCircle>{props.icon}</ConferenceCircle>
+              )}
+              {(props.now || props.time) && (
+                <ConferenceTime now={props.now}>{props.now ? 'NOW' : props.time}</ConferenceTime>
+              )}
+            </div>
+          </ConferenceWrapper>
+        </>
+      )}
+    </>
   );
 
   return (
