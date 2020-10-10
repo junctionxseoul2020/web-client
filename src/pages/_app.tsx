@@ -8,6 +8,8 @@ import { SocketProvider } from '@/context/SocketSontext';
 import { AuthProvider } from '@/context/AuthContext';
 import { LoginContainer } from '@/container/LoginContainer';
 
+import { RecoilRoot } from 'recoil';
+
 const MyApp = ({ Component, pageProps }: AppProps): React.ReactNode => {
   return (
     <CacheProvider value={cache}>
@@ -15,7 +17,9 @@ const MyApp = ({ Component, pageProps }: AppProps): React.ReactNode => {
       <AuthProvider>
         <LoginContainer>
           <SocketProvider>
-            <Component {...pageProps} />
+            <RecoilRoot>
+              <Component {...pageProps} />
+            </RecoilRoot>
           </SocketProvider>
         </LoginContainer>
       </AuthProvider>
