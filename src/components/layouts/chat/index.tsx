@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import ScrollableFeed from 'react-scrollable-feed';
 
@@ -6,7 +6,7 @@ import DefaultLayout from '@/components/layouts/default';
 import Sidebar from './sidebar';
 import ChannelInfomationHeader from './channelHeader';
 
-const Chat: React.FC<{ name: string }> = ({ children, name }) => {
+const Chat: React.FC<{ name: string; memberCount: number }> = ({ children, name, memberCount }) => {
   const ChatWrapper = styled.div`
     display: grid;
     grid-template-columns: 260px auto;
@@ -27,7 +27,7 @@ const Chat: React.FC<{ name: string }> = ({ children, name }) => {
       <ChatWrapper>
         <Sidebar />
         <div>
-          <ChannelInfomationHeader name={name} />
+          <ChannelInfomationHeader name={name} memberCount={memberCount} />
           <ChatContent>
             <ScrollableFeed>
               <ChatInnerContent>{children}</ChatInnerContent>

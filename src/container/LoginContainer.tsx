@@ -1,7 +1,6 @@
 import { NextPage } from 'next';
 import React, { useEffect } from 'react';
 import { useAuth, User } from '@/context/AuthContext';
-import LoginPage from '@/pages/test2';
 
 export const LoginContainer: NextPage = ({ children, ...pageProps }) => {
   const { user, userId, setLoggedOut, setLoggedIn } = useAuth();

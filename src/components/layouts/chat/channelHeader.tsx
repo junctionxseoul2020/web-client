@@ -3,7 +3,10 @@ import styled from '@emotion/styled';
 import InfoIcon from '@/components/icons/info';
 import UserAdd from '@/components/icons/user-add';
 
-const ChannelInfomationHeader: React.FC<{ name: string }> = props => {
+const ChannelInfomationHeader: React.FC<{ name: string; memberCount: number }> = ({
+  name,
+  memberCount,
+}) => {
   const InfoHeaderWrapper = styled.div`
     display: flex;
     align-items: center;
@@ -57,7 +60,7 @@ const ChannelInfomationHeader: React.FC<{ name: string }> = props => {
   return (
     <InfoHeaderWrapper>
       <div>
-        <ChannelName>#{props.name}</ChannelName>
+        <ChannelName>#{name}</ChannelName>
         <ChannelDesc>Add a topic</ChannelDesc>
       </div>
       <RightSide>
@@ -65,7 +68,7 @@ const ChannelInfomationHeader: React.FC<{ name: string }> = props => {
           <UserProfilePic src="https://via.placeholder.com/150" />
           <UserProfilePic src="https://via.placeholder.com/150" />
           <UserProfilePic src="https://via.placeholder.com/150" />
-          <UserCount>15</UserCount>
+          <UserCount>{memberCount}</UserCount>
         </UserProfileBox>
         <UserAdd />
         <InfoIcon />
