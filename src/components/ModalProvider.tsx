@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useModal } from '@/hooks/useModal';
+import { Modal as ModalType, useModal } from '@/hooks/useModal';
+import AddConferenceModal from './modals/addconference';
 
 const ModalProvider: React.FC = () => {
   const { modal } = useModal();
@@ -8,7 +9,13 @@ const ModalProvider: React.FC = () => {
     <>
       {modal !== '' && (
         <ModalBackground>
-          <Modal>asd</Modal>
+          {modal === ModalType.AddConference && (
+            <>
+              <Modal>
+                <AddConferenceModal />
+              </Modal>
+            </>
+          )}
         </ModalBackground>
       )}
     </>
