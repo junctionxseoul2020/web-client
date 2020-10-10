@@ -6,10 +6,10 @@ import ChatComponent from '@/components/chats/chat';
 import ChatInputComponent from '@/components/chats/input';
 import GroupHeader, { GroupHeaderType } from '@/components/GroupHeader';
 
-const ChatPage: NextPage<{ slug?: string | string[] }> = ({ slug }) => {
+const LoungePage: NextPage<{ slug?: string | string[] }> = ({ slug }) => {
   return (
     <ChatLayout name={String(slug)}>
-      <GroupHeader type={GroupHeaderType.Meet} />
+      <GroupHeader type={GroupHeaderType.Lounge} />
       <ChatComponent nickname="강희원" time="12:00AM" content={'컨텐츠는 string이나,'} />
       <ChatComponent
         nickname="도다"
@@ -25,8 +25,4 @@ const ChatPage: NextPage<{ slug?: string | string[] }> = ({ slug }) => {
   );
 };
 
-ChatPage.getInitialProps = async ({ query }) => {
-  return { slug: query.slug };
-};
-
-export default ChatPage;
+export default LoungePage;
