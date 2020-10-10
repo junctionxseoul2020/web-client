@@ -60,7 +60,7 @@ const ChannelInfomationHeader: React.FC<{ name: string; memberCount: number }> =
   return (
     <InfoHeaderWrapper>
       <div>
-        <ChannelName>#{name}</ChannelName>
+        <ChannelName>{name}</ChannelName>
         <ChannelDesc>Add a topic</ChannelDesc>
       </div>
       <RightSide>

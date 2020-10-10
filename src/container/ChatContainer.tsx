@@ -24,7 +24,7 @@ export const ChatContainer = React.memo<Props>(({ channel, channels, type }) => 
   );
   return (
     <ChatLayout
-      name={channel.name}
+      name={'#' + channel.name}
       memberCount={channel.participants.length || 0}
       channels={channels}
     >
