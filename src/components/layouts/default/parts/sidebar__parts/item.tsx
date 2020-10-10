@@ -1,14 +1,16 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import Link from 'next/link';
 
 interface ConferenceProps {
+  href?: string;
   icon?: React.ReactNode;
   now?: boolean;
   time?: string;
 }
 
 const ConferenceComponent: React.FC<ConferenceProps> = props => {
-  return (
+  const LinkItem = (
     <ConferenceWrapper>
       <div>
         {props.now ? (
@@ -24,9 +26,28 @@ const ConferenceComponent: React.FC<ConferenceProps> = props => {
       </div>
     </ConferenceWrapper>
   );
+
+  return (
+    <>
+      {props.href ? (
+        <Link href={props.href} passHref>
+          {LinkItem}
+        </Link>
+      ) : (
+        <>{LinkItem}</>
+      )}
+    </>
+  );
 };
 
 export default ConferenceComponent;
+
+const ConferenceWrapper = styled.a`
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+`;
 
 const ConferenceTime = styled.span`
   display: inline-block;
@@ -46,13 +67,6 @@ const ConferenceTime = styled.span`
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     background-image: linear-gradient(144deg, #fffdd6 -4%, #b2fb5c 46%, var(--green) 77%);
   `}
-`;
-
-const ConferenceWrapper = styled.div`
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
 `;
 
 const ConferenceCircle = styled.div`

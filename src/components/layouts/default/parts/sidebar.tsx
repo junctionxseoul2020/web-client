@@ -11,7 +11,7 @@ const SidebarComponent: React.FC = () => {
     <SidebarWrapper>
       <ItemComponent icon={<Comment />} now={true} />
       <ItemComponent icon={<Comment />} time="12:00" />
-      <ItemComponent icon={<Coffee />} />
+      <ItemComponent href="/lounge" icon={<Coffee />} />
       <ItemComponent icon={<PlusIcon />} />
       <SidebarBottom>
         <ItemComponent icon={<LogOff />} />
