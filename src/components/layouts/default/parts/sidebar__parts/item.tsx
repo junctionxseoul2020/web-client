@@ -11,8 +11,11 @@ interface ConferenceProps {
 }
 
 const ConferenceComponent: React.FC<ConferenceProps> = props => {
+  const handleClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = e => {
+    if (props.onClick) props.onClick(e); // works
+  };
   const LinkItem = (
-    <ConferenceWrapper onClick={props.onClick}>
+    <ConferenceWrapper onClick={handleClick}>
       <div>
         {props.now ? (
           <ConferenceNowCircle>
