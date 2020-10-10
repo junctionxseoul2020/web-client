@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { User } from '@/context/AuthContext';
 
 export enum GroupHeaderType {
   Lounge,
@@ -8,7 +9,7 @@ export enum GroupHeaderType {
 
 interface GroupHeaderProps {
   backgroundImg?: string;
-  users?: Array<{ id: string; img: string; name: string }>;
+  users?: Array<User>;
   type: GroupHeaderType;
 }
 
@@ -27,7 +28,7 @@ const GroupHeader: React.FC<GroupHeaderProps> = props => {
                   <>
                     <Profile key={i}>
                       <ProfileImgWrapper>
-                        <ProfileImg src={item.img} />
+                        <ProfileImg src={item.photo} />
                       </ProfileImgWrapper>
                       <ProfileName>{item.name}</ProfileName>
                     </Profile>
@@ -143,6 +144,7 @@ const ServiceLink = styled.a`
   border-radius: 50%;
   overflow: hidden;
   margin-left: 20px;
+  cursor: pointer;
 `;
 
 const ServiceLinkIconImg = styled.img`
