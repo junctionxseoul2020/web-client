@@ -1,28 +1,21 @@
 import React from 'react';
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
+import { ChatContainer } from '@/container/ChatContainer';
+import { requestAPI } from '@/utils/APIUtil';
+import { Channel } from '@/pages/channel/[slug]';
 
-import ChatLayout from '@/components/layouts/chat';
-import ChatComponent from '@/components/chats/chat';
-import ChatInputComponent from '@/components/chats/input';
-import GroupHeader, { GroupHeaderType } from '@/components/GroupHeader';
+type Props = {
+  data: Channel;
+  channels: Channel[];
+};
+const LoungePage: NextPage<Props> = ({ data, channels }) => {
+  return <ChatContainer channels={channels} type="lounge" channel={data} />;
+};
 
-const LoungePage: NextPage = () => {
-  return (
-    <ChatLayout name="라운지">
-      <GroupHeader type={GroupHeaderType.Lounge} />
-      <ChatComponent nickname="강희원" time="12:00AM" content={'컨텐츠는 string이나,'} />
-      <ChatComponent
-        nickname="도다"
-        time="12:00AM"
-        content={
-          <>
-            <pre>JSX</pre>가 들어갈 수도 있어요. <b>bold</b> <i>italic</i>
-          </>
-        }
-      />
-      <ChatInputComponent />
-    </ChatLayout>
-  );
+export const getServerSideProps: GetServerSideProps = async () => {
+  const data = await requestAPI<Channel>('/channel/lounge');
+  const channels = await requestAPI<Channel[]>('/channel/list', { workspaceId: 1 });
+  return { props: { data, channels } };
 };
 
 export default LoungePage;

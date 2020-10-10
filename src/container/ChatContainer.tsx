@@ -6,11 +6,14 @@ import ChatInputComponent from '@/components/chats/input';
 import React, { useCallback } from 'react';
 import { useChat } from '@/hooks/useChat';
 import { Channel } from '@/pages/channel/[slug]';
+import GroupHeader, { GroupHeaderType } from '@/components/GroupHeader';
 
 type Props = {
   channel: Channel;
+  channels: Channel[];
+  type: 'lounge' | 'chat' | 'meet';
 };
-export const ChatContainer = React.memo<Props>(({ channel }) => {
+export const ChatContainer = React.memo<Props>(({ channel, channels, type }) => {
   const { data, sendMessage } = useChat(channel.id, 6, 'hello');
 
   const handleSend = useCallback(
@@ -20,8 +23,14 @@ export const ChatContainer = React.memo<Props>(({ channel }) => {
     [channel.id, sendMessage],
   );
   return (
-    <ChatLayout name={channel.name} memberCount={channel.participants.length || 0}>
-      <IntroBox title={'#' + channel.name} desc={channel.description} />
+    <ChatLayout
+      name={channel.name}
+      memberCount={channel.participants.length || 0}
+      channels={channels}
+    >
+      {type === 'lounge' && <GroupHeader type={GroupHeaderType.Lounge} />}
+      {type === 'meet' && <GroupHeader type={GroupHeaderType.Meet} />}
+      {type === 'chat' && <IntroBox title={'#' + channel.name} desc={channel.description} />}
       <ChatSeperator />
       {data.map(chat => (
         <ChatComponent

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import { ChatContainer } from '@/container/ChatContainer';
 import { requestAPI } from '@/utils/APIUtil';
 import { User } from '@/context/AuthContext';
@@ -12,16 +12,17 @@ export type Channel = {
 };
 
 type Props = {
-  slug: number;
   data: Channel;
+  channels: Channel[];
 };
-const ChatPage: NextPage<Props> = ({ data }) => {
-  return <ChatContainer channel={data} />;
+const ChatPage: NextPage<Props> = ({ data, channels }) => {
+  return <ChatContainer channel={data} channels={channels} type="chat" />;
 };
 
-export async function getServerSideProps({ query }) {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const data = await requestAPI<Channel>('/channel/info', { id: query.slug });
-  return { props: { data } };
-}
+  const channels = await requestAPI<Channel[]>('/channel/list', { workspaceId: 1 });
+  return { props: { data, channels } };
+};
 
 export default ChatPage;
