@@ -6,9 +6,9 @@ import ChatComponent from '@/components/chats/chat';
 import ChatInputComponent from '@/components/chats/input';
 import GroupHeader, { GroupHeaderType } from '@/components/GroupHeader';
 
-const LoungePage: NextPage<{ slug?: string | string[] }> = ({ slug }) => {
+const LoungePage: NextPage = () => {
   return (
-    <ChatLayout name={String(slug)}>
+    <ChatLayout name="라운지">
       <GroupHeader type={GroupHeaderType.Lounge} />
       <ChatComponent nickname="강희원" time="12:00AM" content={'컨텐츠는 string이나,'} />
       <ChatComponent
