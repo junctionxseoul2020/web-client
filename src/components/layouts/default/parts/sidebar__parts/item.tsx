@@ -48,6 +48,7 @@ const ConferenceWrapper = styled.a`
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  cursor: pointer;
 `;
 
 const ConferenceTime = styled.span`
