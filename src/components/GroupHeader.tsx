@@ -8,7 +8,7 @@ export enum GroupHeaderType {
 
 interface GroupHeaderProps {
   backgroundImg?: string;
-  users?: Array<{ id?: string; img?: string; name?: string }>;
+  users?: Array<{ id: string; img: string; name: string }>;
   type: GroupHeaderType;
 }
 
@@ -25,11 +25,11 @@ const GroupHeader: React.FC<GroupHeaderProps> = props => {
               {props.users.map((item, i) => {
                 return (
                   <>
-                    <Profile>
+                    <Profile key={i}>
                       <ProfileImgWrapper>
-                        <ProfileImg src="https://static-zepeto.pstatic.net/assets/42BmTzfkh5wP1sYEdGSwr5#" />
+                        <ProfileImg src={item.img} />
                       </ProfileImgWrapper>
-                      <ProfileName>Hyunsoo Park</ProfileName>
+                      <ProfileName>{item.name}</ProfileName>
                     </Profile>
                   </>
                 );
