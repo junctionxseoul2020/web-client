@@ -11,7 +11,7 @@ import ChatInputComponent from '@/components/chats/input';
 
 const ChatPage: NextPage<{ slug?: string | string[] }> = ({ slug }) => {
   return (
-    <ChatLayout>
+    <ChatLayout name={String(slug)}>
       <IntroBox title={'#' + slug} desc="이곳에 무엇이 들어갈지 적어주세요" />
       <ChatSeperator />
       <ChatComponent nickname="강희원" time="12:00AM" content={'컨텐츠는 string이나,'} />

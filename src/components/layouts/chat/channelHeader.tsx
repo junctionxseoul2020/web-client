@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import InfoIcon from '@/components/icons/info';
 import UserAdd from '@/components/icons/user-add';
 
-const ChannelInfomationHeader: React.FC = () => {
+const ChannelInfomationHeader: React.FC<{ name: string }> = props => {
   const InfoHeaderWrapper = styled.div`
     display: flex;
     align-items: center;
@@ -57,7 +57,7 @@ const ChannelInfomationHeader: React.FC = () => {
   return (
     <InfoHeaderWrapper>
       <div>
-        <ChannelName>#channel_name</ChannelName>
+        <ChannelName>#{props.name}</ChannelName>
         <ChannelDesc>Add a topic</ChannelDesc>
       </div>
       <RightSide>

@@ -5,7 +5,7 @@ import DefaultLayout from '@/components/layouts/default';
 import Sidebar from './sidebar';
 import ChannelInfomationHeader from './channelHeader';
 
-const Chat: React.FC = ({ children }) => {
+const Chat: React.FC<{ name: string }> = ({ children, name }) => {
   const ChatWrapper = styled.div`
     display: grid;
     grid-template-columns: 260px auto;
@@ -21,7 +21,7 @@ const Chat: React.FC = ({ children }) => {
       <ChatWrapper>
         <Sidebar />
         <ChatContent>
-          <ChannelInfomationHeader />
+          <ChannelInfomationHeader name={name} />
           {children}
         </ChatContent>
       </ChatWrapper>
