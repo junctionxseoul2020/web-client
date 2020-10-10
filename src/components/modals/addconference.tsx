@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Select from 'react-select'; // https://react-select.com/
+import CloseIcon from '../icons/close';
+import { useModal } from '@/hooks/useModal';
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -9,9 +11,15 @@ const options = [
 ];
 
 const AddConferenceModal: React.FC = () => {
+  const { closeModal } = useModal();
   return (
     <ModalContentWrapper>
-      <ModalTitle>Create conference</ModalTitle>
+      <ModalTitle>
+        Create conference{' '}
+        <ModalCloseButton onClick={() => closeModal()}>
+          <CloseIcon />
+        </ModalCloseButton>
+      </ModalTitle>
       <ModalFormWrapper>
         <ModalFormLabel>conference title</ModalFormLabel>
         <ModalFormInput placeholder="conference title, name" />
@@ -136,9 +144,16 @@ const ModalButton = styled.button`
   cursor: pointer;
 `;
 
-const ModalSelectModifier = styled.div`
-  .customSelect {
-  }
+const ModalSelectModifier = styled.div``;
+
+const ModalCloseButton = styled.button`
+  border: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  float: right;
+  outline: none;
+  cursor: pointer;
+  color: #707070;
 `;
 
 export default AddConferenceModal;
