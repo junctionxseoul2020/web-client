@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 interface ConferenceProps {
+  icon?: React.ReactNode;
   now?: boolean;
   time?: string;
 }
@@ -13,7 +14,11 @@ const ConferenceComponent: React.FC<ConferenceProps> = props => {
     justify-content: center;
     margin-bottom: 20px;
   `;
+
   const ConferenceCircle = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 54px;
     height: 54px;
     border-radius: 50%;
@@ -21,6 +26,7 @@ const ConferenceComponent: React.FC<ConferenceProps> = props => {
     background: var(--white);
     color: var(--primary);
   `;
+
   const ConferenceNowCircle = styled.div`
     display: flex;
     align-items: center;
@@ -31,6 +37,7 @@ const ConferenceComponent: React.FC<ConferenceProps> = props => {
     background-image: linear-gradient(138deg, #fffdd6 9%, #b2fb5c 58%, var(--green) 88%);
     border-radius: 50%;
   `;
+
   const ConferenceTime = styled.span`
     display: inline-block;
     line-height: 1.5;
@@ -54,10 +61,10 @@ const ConferenceComponent: React.FC<ConferenceProps> = props => {
       <div>
         {props.now ? (
           <ConferenceNowCircle>
-            <ConferenceCircle></ConferenceCircle>
+            <ConferenceCircle>{props.icon}</ConferenceCircle>
           </ConferenceNowCircle>
         ) : (
-          <ConferenceCircle></ConferenceCircle>
+          <ConferenceCircle>{props.icon}</ConferenceCircle>
         )}
         {(props.now || props.time) && (
           <ConferenceTime>{props.now ? 'NOW' : props.time}</ConferenceTime>
