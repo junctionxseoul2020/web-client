@@ -7,21 +7,6 @@ import Coffee from '@/components/icons/coffee';
 import PlusIcon from '@/components/icons/plus';
 
 const SidebarComponent: React.FC = () => {
-  const SidebarWrapper = styled.div`
-    width: 82px;
-    height: calc(100vh - 38px);
-    background: var(--secondary);
-    padding: 24px 0;
-    position: relative;
-  `;
-
-  const SidebarBottom = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  `;
-
   return (
     <SidebarWrapper>
       <ItemComponent icon={<Comment />} now={true} />
@@ -34,5 +19,20 @@ const SidebarComponent: React.FC = () => {
     </SidebarWrapper>
   );
 };
+
+const SidebarWrapper = styled.div`
+  width: 82px;
+  height: calc(100vh - 38px);
+  background: var(--secondary);
+  padding: 24px 0;
+  position: relative;
+`;
+
+const SidebarBottom = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+`;
 
 export default SidebarComponent;
