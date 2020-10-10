@@ -5,6 +5,7 @@ import HeadLinkItem from './sidebar__parts/headLink';
 import MoreIcon from '@/components/icons/more';
 import ChannelItem from './sidebar__parts/channelItem';
 import ChannelAdd from './sidebar__parts/channelAdd';
+import UserItem from './sidebar__parts/userItem';
 
 const Sidebar: React.FC = () => {
   const SidebarWrapper = styled.div`
@@ -74,6 +75,9 @@ const Sidebar: React.FC = () => {
         <GroupTitle>
           <CdownIcon /> Direct messages
         </GroupTitle>
+        <UserItem nickname="도다" />
+        <UserItem nickname="도다" />
+        <UserItem nickname="도다" />
       </GroupWrapper>
     </SidebarWrapper>
   );
