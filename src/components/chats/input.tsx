@@ -29,9 +29,10 @@ const ChatInputComponent: React.FC<Props> = ({ onSubmit }) => {
 };
 
 const InputWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  width: 100%;
+  left: 342px;
+  right: 13px;
   padding: 18px;
 `;
 const InputSection = styled.div`

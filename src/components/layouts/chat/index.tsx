@@ -14,22 +14,24 @@ const Chat: React.FC<{ name: string }> = ({ children, name }) => {
   `;
   const ChatContent = styled.div`
     position: relative;
-    height: calc(100vh - 38px);
+    height: calc(100vh - 102px);
+    overflow: auto;
   `;
   const ChatInnerContent = styled.div`
     overflow: auto;
+    padding-bottom: 100px;
   `;
 
   return (
     <DefaultLayout>
       <ChatWrapper>
         <Sidebar />
-        <ChatContent>
-          <ChatInnerContent>
-            <ChannelInfomationHeader name={name} />
-            {children}
-          </ChatInnerContent>
-        </ChatContent>
+        <div>
+          <ChannelInfomationHeader name={name} />
+          <ChatContent>
+            <ChatInnerContent>{children}</ChatInnerContent>
+          </ChatContent>
+        </div>
       </ChatWrapper>
     </DefaultLayout>
   );
