@@ -9,6 +9,7 @@ import { Modal, useModal } from '@/hooks/useModal';
 
 const SidebarComponent: React.FC = () => {
   const { openModal } = useModal();
+
   return (
     <SidebarWrapper>
       <ItemComponent icon={<Comment />} now={true} />

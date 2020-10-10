@@ -13,8 +13,8 @@ const modalState = atom({
 interface useModalInterface {
   modal: Modal;
   setModal?: SetterOrUpdater<Modal>;
-  openModal?: (modal: Modal) => void;
-  closeModal?: () => void;
+  openModal: (modal: Modal) => void;
+  closeModal: () => void;
 }
 
 export const useModal = (): useModalInterface => {
