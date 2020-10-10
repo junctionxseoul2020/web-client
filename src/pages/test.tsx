@@ -1,10 +1,20 @@
 import React from 'react';
-import styled from '@emotion/styled';
 
 import DefaultLayout from '@/components/layouts/chat';
+import { useChat } from '@/hooks/useChat';
 
 const TestPage: React.FC = () => {
-  return <DefaultLayout>asd</DefaultLayout>;
+  const { data, sendMessage } = useChat(1, 6, 'hello');
+  return (
+    <DefaultLayout>
+      {data.map(chat => (
+        <div key={chat.id}>
+          {chat.text}
+          <br />
+        </div>
+      ))}
+    </DefaultLayout>
+  );
 };
 
 export default TestPage;
