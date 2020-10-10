@@ -34,7 +34,9 @@ const Sidebar: NextPage<Props> = ({ channels }) => {
           <CdownIcon /> Channels
         </GroupTitle>
         {channels?.map(channel => (
-          <ChannelItem href={`/channel/${channel.id}`}>{channel.name}</ChannelItem>
+          <ChannelItem href={`/channel/${channel.id}`} key={channel.id}>
+            {channel.name}
+          </ChannelItem>
         ))}
         <ChannelAdd>Add Channels</ChannelAdd>
       </GroupWrapper>
