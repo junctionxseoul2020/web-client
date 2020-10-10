@@ -1,32 +1,22 @@
 import React from 'react';
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
+import { Channel } from '@/pages/channel/[slug]';
+import { ChatContainer } from '@/container/ChatContainer';
+import { requestAPI } from '@/utils/APIUtil';
 
-import ChatLayout from '@/components/layouts/chat';
-import ChatComponent from '@/components/chats/chat';
-import ChatInputComponent from '@/components/chats/input';
-import GroupHeader, { GroupHeaderType } from '@/components/GroupHeader';
-
-const ChatPage: NextPage<{ slug?: string | string[] }> = ({ slug }) => {
-  return (
-    <ChatLayout name={String(slug)}>
-      <GroupHeader type={GroupHeaderType.Meet} />
-      <ChatComponent nickname="강희원" time="12:00AM" content={'컨텐츠는 string이나,'} />
-      <ChatComponent
-        nickname="도다"
-        time="12:00AM"
-        content={
-          <>
-            <pre>JSX</pre>가 들어갈 수도 있어요. <b>bold</b> <i>italic</i>
-          </>
-        }
-      />
-      <ChatInputComponent />
-    </ChatLayout>
-  );
+type Props = {
+  data: Channel;
+  channels: Channel[];
+};
+const MeetPage: NextPage<Props> = ({ data, channels }) => {
+  return <ChatContainer channel={data} channels={channels} type="meet" />;
 };
 
-ChatPage.getInitialProps = async ({ query }) => {
-  return { slug: query.slug };
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  console.log(query);
+  const data = await requestAPI<Channel>('/conference/info', { id: query.slug });
+  const channels = await requestAPI<Channel[]>('/channel/list', { workspaceId: 1 });
+  return { props: { data, channels } };
 };
 
-export default ChatPage;
+export default MeetPage;

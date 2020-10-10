@@ -6,8 +6,14 @@ import MoreIcon from '@/components/icons/more';
 import ChannelItem from './sidebar__parts/channelItem';
 import ChannelAdd from './sidebar__parts/channelAdd';
 import UserItem from './sidebar__parts/userItem';
+import { NextPage } from 'next';
+import { Channel } from '@/pages/channel/[slug]';
 
-const Sidebar: React.FC = () => {
+type Props = {
+  channels: Channel[];
+};
+
+const Sidebar: NextPage<Props> = ({ channels }) => {
   return (
     <SidebarWrapper>
       <TitleSection>
@@ -27,9 +33,11 @@ const Sidebar: React.FC = () => {
         <GroupTitle>
           <CdownIcon /> Channels
         </GroupTitle>
-        <ChannelItem href="/channel/hello">hello</ChannelItem>
-        <ChannelItem href="/channel/query">query</ChannelItem>
-        <ChannelItem href="/channel/params">params</ChannelItem>
+        {channels?.map(channel => (
+          <ChannelItem href={`/channel/${channel.id}`} key={channel.id}>
+            {channel.name}
+          </ChannelItem>
+        ))}
         <ChannelAdd>Add Channels</ChannelAdd>
       </GroupWrapper>
       <GroupWrapper>
