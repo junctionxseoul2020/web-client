@@ -2,9 +2,13 @@ import { NextPage } from 'next';
 import React from 'react';
 import styled from '@emotion/styled';
 
-const FullpageLayout: NextPage = ({ children }) => {
+interface FullpageLayoutProps {
+  bgImage?: string;
+}
+
+const FullpageLayout: NextPage<FullpageLayoutProps> = ({ children }, props) => {
   return (
-    <FullpageLayoutWrapper>
+    <FullpageLayoutWrapper img={props.bgImage}>
       <ContentWrapper>
         <LogoWrapper>
           <Logo>@work</Logo>
