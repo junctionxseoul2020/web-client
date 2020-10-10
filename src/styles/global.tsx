@@ -45,6 +45,11 @@ const globalStyles = (
         border-spacing: 0;
       }
 
+      form,
+      input {
+        font-family: inherit;
+      }
+
       html,
       body {
         margin: 0;
