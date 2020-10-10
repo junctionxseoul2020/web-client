@@ -132,7 +132,6 @@ const HeaderContainer = styled.div`
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const users = await requestAPI<User[]>('/user/list', { workspaceId: 1 });
-  console.log(users);
   const channels = await requestAPI<Channel[]>('/channel/list', { workspaceId: 1 });
   return { props: { users, channels } };
 };
