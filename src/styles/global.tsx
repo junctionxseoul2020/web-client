@@ -56,6 +56,7 @@ const globalStyles = (
         font-family: AppleSDGothicNeo, 'Noto Sans CJK KR', 'Noto Sans KR', NanumGothic, 'Segoe UI',
           '맑은 고딕', Helvetica, Arial, sans-serif;
         line-height: 1;
+        overflow: hidden;
       }
     `}
   />
