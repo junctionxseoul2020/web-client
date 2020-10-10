@@ -82,7 +82,7 @@ const GreetingPage: NextPage<{ users: User[]; channels: Channel[] }> = ({ users,
               <GreetingImg src="https://via.placeholder.com/500" />
             </GreetingImgWrapper>
             <GreetingMyTitle>
-              <b>Nalong</b>, welcome to AnyOn
+              <b>Nalong</b>, welcome to JunctionX Seoul 2020
             </GreetingMyTitle>
             <GreetingMyDescription>Team Zerohouse / design team</GreetingMyDescription>
           </GreetingMyWrapper>
