@@ -27,7 +27,7 @@ const AuthContext = React.createContext<AuthState>({
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider: NextPage = ({ children }) => {
-  const [userData, setUserData] = useState<User>();
+  const [userData, setUserData] = useState<User | undefined>();
 
   const setLoggedIn = useCallback((user: User) => {
     localStorage.setItem('work_u', JSON.stringify(user));
@@ -40,7 +40,7 @@ export const AuthProvider: NextPage = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user: userData, userId: userData.id || undefined, setLoggedOut, setLoggedIn }}
+      value={{ user: userData, userId: userData?.id || undefined, setLoggedOut, setLoggedIn }}
     >
       {children}
     </AuthContext.Provider>
