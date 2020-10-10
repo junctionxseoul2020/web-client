@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import ConferenceComponent from './sidebar__parts/conference';
+import ItemComponent from './sidebar__parts/item';
+import Comment from '@/components/icons/comment';
+import LogOff from '@/components/icons/logoff';
+import Coffee from '@/components/icons/coffee';
 
 const SidebarComponent: React.FC = () => {
   const SidebarWrapper = styled.div`
@@ -20,10 +23,12 @@ const SidebarComponent: React.FC = () => {
 
   return (
     <SidebarWrapper>
-      <ConferenceComponent now={true} />
-      <ConferenceComponent time="12:00" />
+      <ItemComponent icon={<Comment />} now={true} />
+      <ItemComponent icon={<Comment />} time="12:00" />
+      <ItemComponent icon={<Coffee />} />
+      <ItemComponent icon={<Comment />} />
       <SidebarBottom>
-        <ConferenceComponent />
+        <ItemComponent icon={<LogOff />} />
       </SidebarBottom>
     </SidebarWrapper>
   );
