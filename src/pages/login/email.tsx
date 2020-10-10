@@ -1,20 +1,53 @@
 import FullpageLayout from '@/components/layouts/fullpage';
 import { NextPage } from 'next';
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from '@emotion/styled';
+import { requestAPI } from '@/utils/APIUtil';
+import { useAuth, User } from '@/context/AuthContext';
+import { useRouter } from 'next/router';
 
-const LoginPage: NextPage = () => {
+const EmailPage: NextPage = () => {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const { setLoggedIn } = useAuth();
+  const { push } = useRouter();
+  const handleEmailChange = useCallback(event => {
+    setEmail(event.target.value);
+  }, []);
+  const handlePasswordChange = useCallback(event => {
+    setPassword(event.target.value);
+  }, []);
+  const handleSubmit = useCallback(async () => {
+    const user = await requestAPI<User>('/user/login', { email, password });
+    if (user && user.id) {
+      setLoggedIn(user);
+      await push('/login/exist');
+    }
+  }, [email, password, push, setLoggedIn]);
+  const handleRegister = useCallback(async () => {
+    await push('/register');
+  }, [push]);
+
   return (
     <>
       <FullpageLayout>
         <LoginFormWrapper>
           <LoginFormTitle>Sign in to your account</LoginFormTitle>
           <LoginFormDescription>Enter your email address.</LoginFormDescription>
-          <LoginFormInput placeholder="example@gmail.com" />
-          <LoginFormInput placeholder="password" />
-          <LoginFormButton>Next</LoginFormButton>
+          <LoginFormInput
+            placeholder="example@gmail.com"
+            value={email}
+            onChange={handleEmailChange}
+          />
+          <LoginFormInput
+            placeholder="password"
+            value={password}
+            onChange={handlePasswordChange}
+            type="password"
+          />
+          <LoginFormButton onClick={handleSubmit}>Next</LoginFormButton>
           <LoginFormDidntFoundText>
-            Don’t know your workspace URL? <LoginAnchor>Find your workspaces</LoginAnchor>
+            Don't have an account? <LoginAnchor onClick={handleRegister}>Register now!</LoginAnchor>
           </LoginFormDidntFoundText>
         </LoginFormWrapper>
       </FullpageLayout>
@@ -85,4 +118,4 @@ const LoginAnchor = styled.a`
   cursor: pointer;
 `;
 
-export default LoginPage;
+export default EmailPage;

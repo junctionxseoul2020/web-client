@@ -1,17 +1,22 @@
 import FullpageLayout from '@/components/layouts/fullpage';
 import { NextPage } from 'next';
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from '@emotion/styled';
+import { useRouter } from 'next/router';
 
 const LoginPage: NextPage = () => {
+  const { push } = useRouter();
+  const handleSubmit = useCallback(async () => {
+    await push('/login/email');
+  }, [push]);
   return (
     <>
       <FullpageLayout>
         <LoginFormWrapper>
           <LoginFormTitle>Sign in to your workspace</LoginFormTitle>
           <LoginFormDescription>Enter your workspace's URL.</LoginFormDescription>
-          <LoginFormInput />
-          <LoginFormButton>Next</LoginFormButton>
+          <LoginFormInput value="junctionX2020.a-work.com" />
+          <LoginFormButton onClick={handleSubmit}>Next</LoginFormButton>
           <LoginFormDidntFoundText>
             Don’t know your workspace URL? <LoginAnchor>Find your workspaces</LoginAnchor>
           </LoginFormDidntFoundText>

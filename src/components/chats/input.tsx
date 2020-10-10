@@ -19,6 +19,7 @@ const ChatInputComponent: React.FC<Props> = ({ onSubmit }) => {
     e => {
       // Shift 키를 누르지 않고 엔터를 누르면
       if (!e.shiftKey && e.key === 'Enter') {
+        setValue('');
         onSubmit(value);
       }
     },

@@ -2,7 +2,7 @@ import { useSocketEvent } from '@/hooks/useSocketEvent';
 import { useCallback, useEffect, useState } from 'react';
 import { User } from '@/context/AuthContext';
 
-type Chat = {
+export type Chat = {
   id: number;
   text: string;
   author: User;
@@ -24,7 +24,7 @@ export function useChat(channel: number, userId: number, msg: string) {
         setData(jsonData);
       }
     });
-  });
+  }, []);
 
   const sendMessage = useCallback(
     (room, userId, msg) => {
