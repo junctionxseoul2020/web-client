@@ -4,6 +4,7 @@ import ChatLayout from '@/components/layouts/chat';
 import IntroBox from '@/components/chats/introBox';
 import ChatSeperator from '@/components/chats/seperator';
 import ChatComponent from '@/components/chats/chat';
+import ChatInputComponent from '@/components/chats/input';
 
 const ChatPage: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const ChatPage: React.FC = () => {
           </>
         }
       />
+      <ChatInputComponent />
     </ChatLayout>
   );
 };
