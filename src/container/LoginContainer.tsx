@@ -14,8 +14,8 @@ export const LoginContainer: NextPage = ({ children, ...pageProps }) => {
     setLoggedIn(localUser);
   }, [setLoggedIn, setLoggedOut]);
 
-  if (!userId || !user) {
-    return <LoginPage {...pageProps} />;
-  }
+  // if (!userId || !user) {
+  //   return <LoginPage {...pageProps} />;
+  // }
   return <>{children}</>;
 };
