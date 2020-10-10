@@ -28,7 +28,6 @@ const ModalBackground = styled.div`
 
 const Modal = styled.div`
   background: #fff;
-  padding: 30px 36px;
   min-width: 534px;
 `;
 
