@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import DefaultLayout from '@/components/layouts/default';
 import Sidebar from './sidebar';
+import ChannelInfomationHeader from './channelHeader';
 
 const Chat: React.FC = () => {
   const ChatWrapper = styled.div`
@@ -15,6 +16,9 @@ const Chat: React.FC = () => {
     <DefaultLayout>
       <ChatWrapper>
         <Sidebar />
+        <div>
+          <ChannelInfomationHeader />
+        </div>
       </ChatWrapper>
     </DefaultLayout>
   );

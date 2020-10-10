@@ -75,9 +75,9 @@ const Sidebar: React.FC = () => {
         <GroupTitle>
           <CdownIcon /> Direct messages
         </GroupTitle>
-        <UserItem nickname="도다" />
-        <UserItem nickname="도다" />
-        <UserItem nickname="도다" />
+        <UserItem nickname="Yeji" desc="you" />
+        <UserItem nickname="Kimyoo" />
+        <UserItem nickname="Minpark" />
       </GroupWrapper>
     </SidebarWrapper>
   );

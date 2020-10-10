@@ -4,6 +4,7 @@ import ItemComponent from './sidebar__parts/item';
 import Comment from '@/components/icons/comment';
 import LogOff from '@/components/icons/logoff';
 import Coffee from '@/components/icons/coffee';
+import PlusIcon from '@/components/icons/plus';
 
 const SidebarComponent: React.FC = () => {
   const SidebarWrapper = styled.div`
@@ -26,7 +27,7 @@ const SidebarComponent: React.FC = () => {
       <ItemComponent icon={<Comment />} now={true} />
       <ItemComponent icon={<Comment />} time="12:00" />
       <ItemComponent icon={<Coffee />} />
-      <ItemComponent icon={<Comment />} />
+      <ItemComponent icon={<PlusIcon />} />
       <SidebarBottom>
         <ItemComponent icon={<LogOff />} />
       </SidebarBottom>
