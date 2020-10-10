@@ -12,14 +12,18 @@ const Chat: React.FC = ({ children }) => {
     width: 100%;
     height: 100%;
   `;
+  const ChatContent = styled.div`
+    position: relative;
+  `;
+
   return (
     <DefaultLayout>
       <ChatWrapper>
         <Sidebar />
-        <div>
+        <ChatContent>
           <ChannelInfomationHeader />
           {children}
-        </div>
+        </ChatContent>
       </ChatWrapper>
     </DefaultLayout>
   );
