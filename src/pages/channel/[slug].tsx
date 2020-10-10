@@ -1,7 +1,5 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import { NextPage } from 'next';
-import Error from 'next/error';
 
 import ChatLayout from '@/components/layouts/chat';
 import IntroBox from '@/components/chats/introBox';
