@@ -7,7 +7,9 @@ const SocketContext = React.createContext<typeof Socket | undefined>(undefined);
 export const useSocket = () => useContext(SocketContext);
 
 export const SocketProvider: NextPage = ({ children }) => {
-  const [socket] = useState<typeof Socket>(socketIO.connect('http://localhost:8080/'));
+  const [socket] = useState<typeof Socket>(
+    socketIO.connect('https://junctionx.azurewebsites.net/'),
+  );
 
   return <SocketContext.Provider value={socket}>{children}</SocketContext.Provider>;
 };
