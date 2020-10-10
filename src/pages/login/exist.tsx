@@ -1,7 +1,9 @@
 import FullpageLayout from '@/components/layouts/fullpage';
 import { NextPage } from 'next';
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from '@emotion/styled';
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/router';
 
 const LoginProfileWrapper = styled.div`
   text-align: center;
@@ -20,18 +22,30 @@ const LoginProfileName = styled.p`
   color: var(--primary);
 `;
 
-const LoginPage: NextPage = () => {
+const ProfilePage: NextPage = () => {
+  const { user, setLoggedOut } = useAuth();
+  const { push } = useRouter();
+
+  const handleLogout = useCallback(async () => {
+    setLoggedOut();
+    await push('/login/email');
+  }, [push, setLoggedOut]);
+  const handleLogIn = useCallback(async () => {
+    await push('/');
+  }, [push]);
+
   return (
     <>
       <FullpageLayout>
         <LoginFormWrapper>
           <LoginProfileWrapper>
-            <LoginProfileImg src="https://via.placeholder.com/500" />
-            <LoginProfileName>Nickname</LoginProfileName>
+            <LoginProfileImg src={user?.photo} />
+            <LoginProfileName>{user?.name}</LoginProfileName>
           </LoginProfileWrapper>
-          <LoginFormButton>Continue</LoginFormButton>
+          <LoginFormButton onClick={handleLogIn}>Continue</LoginFormButton>
           <LoginFormDidntFoundText>
-            Do you have another account? <LoginAnchor>Sign in with another account</LoginAnchor>
+            Do you have another account?{' '}
+            <LoginAnchor onClick={handleLogout}>Sign in with another account</LoginAnchor>
           </LoginFormDidntFoundText>
         </LoginFormWrapper>
       </FullpageLayout>
@@ -75,4 +89,4 @@ const LoginAnchor = styled.a`
   font-weight: 600;
 `;
 
-export default LoginPage;
+export default ProfilePage;

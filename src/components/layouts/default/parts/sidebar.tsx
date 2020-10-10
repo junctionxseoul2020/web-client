@@ -7,7 +7,7 @@ import Coffee from '@/components/icons/coffee';
 import PlusIcon from '@/components/icons/plus';
 import { Modal, useModal } from '@/hooks/useModal';
 
-const SidebarComponent: React.FC = () => {
+const SidebarComponent: React.FC = React.memo(() => {
   const { openModal } = useModal();
 
   return (
@@ -21,7 +21,7 @@ const SidebarComponent: React.FC = () => {
       </SidebarBottom>
     </SidebarWrapper>
   );
-};
+});
 
 const SidebarWrapper = styled.div`
   width: 82px;

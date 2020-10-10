@@ -8,6 +8,7 @@ type Props = {
   data: Channel;
   channels: Channel[];
 };
+
 const MeetPage: NextPage<Props> = ({ data, channels }) => {
   return <ChatContainer channel={data} channels={channels} type="meet" />;
 };
