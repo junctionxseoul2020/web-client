@@ -1,3 +1,4 @@
+import React, { useCallback } from 'react';
 import React from 'react';
 import { useRouter } from 'next/router';
 import { NextPage } from 'next';
@@ -8,23 +9,31 @@ import IntroBox from '@/components/chats/introBox';
 import ChatSeperator from '@/components/chats/seperator';
 import ChatComponent from '@/components/chats/chat';
 import ChatInputComponent from '@/components/chats/input';
+import { useChat } from '@/hooks/useChat';
 
 const ChatPage: NextPage<{ slug?: string | string[] }> = ({ slug }) => {
+  const { data, sendMessage } = useChat(1, 6, 'hello');
+
+  const handleSend = useCallback(
+    message => {
+      sendMessage(1, 6, message);
+    },
+    [sendMessage],
+  );
+
   return (
     <ChatLayout name={String(slug)}>
       <IntroBox title={'#' + slug} desc="이곳에 무엇이 들어갈지 적어주세요" />
       <ChatSeperator />
-      <ChatComponent nickname="강희원" time="12:00AM" content={'컨텐츠는 string이나,'} />
-      <ChatComponent
-        nickname="도다"
-        time="12:00AM"
-        content={
-          <>
-            <pre>JSX</pre>가 들어갈 수도 있어요. <b>bold</b> <i>italic</i>
-          </>
-        }
-      />
-      <ChatInputComponent />
+      {data.map(chat => (
+        <ChatComponent
+          nickname={chat.author.name}
+          time={chat.createdAt}
+          content={chat.text}
+          key={chat.id}
+        />
+      ))}
+      <ChatInputComponent onSubmit={handleSend} />
     </ChatLayout>
   );
 };

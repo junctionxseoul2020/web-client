@@ -7,7 +7,7 @@ interface ChatComponentProps {
   content: string | React.ReactNode;
 }
 
-const ChatComponent: React.FC<ChatComponentProps> = props => {
+const ChatComponent: React.FC<ChatComponentProps> = React.memo(props => {
   const ChatWrapper = styled.div`
     display: grid;
     grid-template-columns: 36px auto;
@@ -52,6 +52,6 @@ const ChatComponent: React.FC<ChatComponentProps> = props => {
       </div>
     </ChatWrapper>
   );
-};
+});
 
 export default ChatComponent;

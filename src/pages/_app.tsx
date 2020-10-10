@@ -3,14 +3,16 @@ import type { AppProps } from 'next/app';
 
 import { CacheProvider } from '@emotion/core';
 import { cache } from 'emotion'; // Use only { cache } from 'emotion'. Don't use { css }.
-
 import globalStyles from '@/styles/global';
+import { SocketProvider } from '@/context/SocketSontext';
 
 const MyApp = ({ Component, pageProps }: AppProps): React.ReactNode => {
   return (
     <CacheProvider value={cache}>
       {globalStyles}
-      <Component {...pageProps} />
+      <SocketProvider>
+        <Component {...pageProps} />
+      </SocketProvider>
     </CacheProvider>
   );
 };

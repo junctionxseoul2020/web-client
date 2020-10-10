@@ -1,14 +1,14 @@
-import { useSocket } from '@/hooks/useSocket';
+import { useSocketEvent } from '@/hooks/useSocketEvent';
 import { useCallback, useEffect, useState } from 'react';
 
 export function useChat(channel: number, userId: number, msg: string) {
   const [data, setData] = useState([]);
-  const { readSocket, sendSocket } = useSocket();
+  const { readSocket, sendSocket } = useSocketEvent();
 
   useEffect(() => {
     sendSocket('joinRoom', [channel, userId]);
-    readSocket('chatMessage', data => {
-      setData(prevState => [...prevState, data]);
+    readSocket('chatMessage', (userId, msg) => {
+      setData(prevState => [...prevState, JSON.parse(msg)]);
     });
     readSocket('joinRoom', (name, chats) => {
       if (data.length === 0) {
@@ -16,7 +16,7 @@ export function useChat(channel: number, userId: number, msg: string) {
         setData(jsonData);
       }
     });
-  }, [channel, readSocket, sendSocket, userId]);
+  }, []);
 
   const sendMessage = useCallback(
     (room, userId, msg) => {
