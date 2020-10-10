@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import Header from './parts/header';
 import Sidebar from './parts/sidebar';
+import ModalProvider from '@/components/ModalProvider';
 
 const DefaultLayout: React.FC = ({ children }) => {
   const LayoutWrapper = styled.div`
@@ -12,6 +13,7 @@ const DefaultLayout: React.FC = ({ children }) => {
   const ContentWrapper = styled.div``;
   return (
     <>
+      <ModalProvider />
       <Header />
       <LayoutWrapper>
         <Sidebar />
