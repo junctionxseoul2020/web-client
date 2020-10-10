@@ -25,13 +25,13 @@ const LoginPage: NextPage = () => {
     <>
       <FullpageLayout>
         <LoginFormWrapper>
+          <LoginFormTitle>You are done for today!</LoginFormTitle>
           <LoginProfileWrapper>
             <LoginProfileImg src="https://via.placeholder.com/500" />
             <LoginProfileName>Nickname</LoginProfileName>
           </LoginProfileWrapper>
-          <LoginFormButton>Continue</LoginFormButton>
           <LoginFormDidntFoundText>
-            Do you have another account? <LoginAnchor>Sign in with another account</LoginAnchor>
+            Did you forgot something? <LoginAnchor>Take me back to workspace</LoginAnchor>
           </LoginFormDidntFoundText>
         </LoginFormWrapper>
       </FullpageLayout>
@@ -46,21 +46,11 @@ const LoginFormWrapper = styled.div`
   text-align: center;
 `;
 
-const LoginFormButton = styled.button`
+const LoginFormTitle = styled.h1`
   display: block;
-  background: var(--primary);
-  border: 0;
-  border-radius: 4px;
-  color: #fff;
-  height: 46px;
-  width: 100%;
-  font-size: 18px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.5;
-  margin-bottom: 22px;
-  cursor: pointer;
+  font-size: 40px;
+  margin-bottom: 26px;
+  color: var(--dark);
 `;
 
 const LoginFormDidntFoundText = styled.p`

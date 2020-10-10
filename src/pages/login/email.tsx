@@ -81,6 +81,7 @@ const LoginFormDidntFoundText = styled.p`
 
 const LoginAnchor = styled.a`
   color: var(--primary);
+  font-weight: 600;
   cursor: pointer;
 `;
 
