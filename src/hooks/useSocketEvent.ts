@@ -6,13 +6,13 @@ export function useSocketEvent() {
 
   const readSocket = useCallback(
     (event, action) => {
-      chatSocket.on(event, action);
+      chatSocket?.on(event, action);
     },
     [chatSocket],
   );
   const sendSocket = useCallback(
     (event, data) => {
-      chatSocket.emit(event, ...data);
+      chatSocket?.emit(event, ...data);
     },
     [chatSocket],
   );

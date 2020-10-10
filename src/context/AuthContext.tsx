@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useCallback, useContext, useState } from 'react';
+import React, { Dispatch, useCallback, useContext, useState } from 'react';
 import { NextPage } from 'next';
 
 export type User = {
@@ -11,10 +11,10 @@ export type User = {
   photo: string;
 };
 export type AuthState = {
-  user: User;
-  userId: number;
-  setLoggedIn: Dispatch<SetStateAction<User>>;
-  setLoggedOut: Dispatch<SetStateAction<User>>;
+  user: User | undefined;
+  userId: number | undefined;
+  setLoggedIn: Dispatch<User>;
+  setLoggedOut: Dispatch<void>;
 };
 
 const AuthContext = React.createContext<AuthState>({
