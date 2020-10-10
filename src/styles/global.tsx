@@ -19,6 +19,7 @@ const globalStyles = (
         box-sizing: border-box;
         font-size: 100%;
         vertical-align: baseline;
+        margin: 0;
       }
 
       ol,
