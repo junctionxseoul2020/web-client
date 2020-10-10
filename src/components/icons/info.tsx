@@ -20,7 +20,7 @@ const InfoIcon: React.FC = () => {
           <path
             id="Path_673"
             fill="#313131"
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zM4 12a8 8 0 1 0 8-8 8 8 0 0 0-8 8z"
             transform="translate(-2 -2)"
           />
