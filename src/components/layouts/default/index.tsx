@@ -1,0 +1,24 @@
+import React from 'react';
+import styled from '@emotion/styled';
+
+import Header from './parts/header';
+import Sidebar from './parts/sidebar';
+
+const DefaultLayout: React.FC = ({ children }) => {
+  const LayoutWrapper = styled.div`
+    display: grid;
+    grid-template-columns: 82px auto;
+  `;
+  const ContentWrapper = styled.div``;
+  return (
+    <>
+      <Header />
+      <LayoutWrapper>
+        <Sidebar />
+        <ContentWrapper>{children}</ContentWrapper>
+      </LayoutWrapper>
+    </>
+  );
+};
+
+export default DefaultLayout;
