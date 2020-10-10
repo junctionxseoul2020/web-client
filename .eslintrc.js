@@ -8,5 +8,5 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
   ],
   plugins: ['@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y', 'emotion'],
-  rules: {},
+  rules: { '@typescript-eslint/no-empty-function': 0 },
 };
