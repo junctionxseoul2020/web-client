@@ -3,17 +3,35 @@ import { NextPage } from 'next';
 import React from 'react';
 import styled from '@emotion/styled';
 
+const LoginProfileWrapper = styled.div`
+  text-align: center;
+`;
+const LoginProfileImg = styled.img`
+  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  margin-bottom: 12px;
+`;
+const LoginProfileName = styled.p`
+  margin-bottom: 52px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary);
+`;
+
 const LoginPage: NextPage = () => {
   return (
     <>
       <FullpageLayout>
         <LoginFormWrapper>
-          <LoginFormTitle>Sign in to your workspace</LoginFormTitle>
-          <LoginFormDescription>Enter your workspace's URL.</LoginFormDescription>
-          <LoginFormInput />
-          <LoginFormButton>Next</LoginFormButton>
+          <LoginProfileWrapper>
+            <LoginProfileImg src="https://via.placeholder.com/500" />
+            <LoginProfileName>Nickname</LoginProfileName>
+          </LoginProfileWrapper>
+          <LoginFormButton>Continue</LoginFormButton>
           <LoginFormDidntFoundText>
-            Don’t know your workspace URL? <LoginAnchor>Find your workspaces</LoginAnchor>
+            Do you have another account? <LoginAnchor>Sign in with another account</LoginAnchor>
           </LoginFormDidntFoundText>
         </LoginFormWrapper>
       </FullpageLayout>
@@ -26,33 +44,6 @@ const LoginFormWrapper = styled.div`
   min-width: 400px;
   color: var(--dark);
   text-align: center;
-`;
-
-const LoginFormTitle = styled.h1`
-  display: block;
-  font-size: 40px;
-  margin-bottom: 18px;
-  color: var(--dark);
-`;
-
-const LoginFormDescription = styled.span`
-  display: block;
-  font-size: 15px;
-  margin-bottom: 40px;
-  color: var(--dark);
-`;
-
-const LoginFormInput = styled.input`
-  display: block;
-  width: 100%;
-  border: 0;
-  border-radius: 4px;
-  padding: 13px 0;
-  text-align: center;
-  font-size: 15px;
-  border: solid 4px var(--primary);
-  outline: none;
-  margin-bottom: 13px;
 `;
 
 const LoginFormButton = styled.button`
