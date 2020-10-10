@@ -27,10 +27,31 @@ const ChannelInfomationHeader: React.FC = () => {
   `;
 
   const RightSide = styled.div`
+    display: flex;
     .icon-userAdd {
       margin-left: 14px;
       margin-right: 14px;
     }
+  `;
+
+  const UserProfileBox = styled.div`
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  `;
+
+  const UserCount = styled.span`
+    color: #030303;
+    font-size: 13px;
+    margin-left: 12px;
+  `;
+
+  const UserProfilePic = styled.img`
+    width: 26px;
+    height: 26px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 50%;
+    margin-right: -4px;
   `;
 
   return (
@@ -40,6 +61,12 @@ const ChannelInfomationHeader: React.FC = () => {
         <ChannelDesc>Add a topic</ChannelDesc>
       </div>
       <RightSide>
+        <UserProfileBox>
+          <UserProfilePic src="https://via.placeholder.com/150" />
+          <UserProfilePic src="https://via.placeholder.com/150" />
+          <UserProfilePic src="https://via.placeholder.com/150" />
+          <UserCount>15</UserCount>
+        </UserProfileBox>
         <UserAdd />
         <InfoIcon />
       </RightSide>
