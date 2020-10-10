@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import CdownIcon from '@/components/icons/cdown';
 import HeadLinkItem from './sidebar__parts/headLink';
 import MoreIcon from '@/components/icons/more';
+import ChannelItem from './sidebar__parts/channelItem';
+import ChannelAdd from './sidebar__parts/channelAdd';
 
 const Sidebar: React.FC = () => {
   const SidebarWrapper = styled.div`
@@ -24,8 +26,20 @@ const Sidebar: React.FC = () => {
     font-weight: 700;
   `;
 
-  const ContentWrapper = styled.div`
+  const HeaderWrapper = styled.div`
     padding: 11px 0;
+  `;
+
+  const GroupWrapper = styled.div`
+    padding: 10px 0;
+  `;
+  const GroupTitle = styled.div`
+    color: var(--dark);
+    display: block;
+    padding: 7px 16px;
+    font-size: 15px;
+    font-weight: normal;
+    cursor: pointer;
   `;
 
   return (
@@ -34,7 +48,7 @@ const Sidebar: React.FC = () => {
         <Title>JunctionX Seoul 2020</Title>
         <CdownIcon />
       </TitleSection>
-      <ContentWrapper>
+      <HeaderWrapper>
         <HeadLinkItem>Threads</HeadLinkItem>
         <HeadLinkItem>All DMs</HeadLinkItem>
         <HeadLinkItem>Drafts</HeadLinkItem>
@@ -42,7 +56,25 @@ const Sidebar: React.FC = () => {
         <HeadLinkItem fontWeight="normal">
           <MoreIcon /> More
         </HeadLinkItem>
-      </ContentWrapper>
+      </HeaderWrapper>
+      <GroupWrapper>
+        <GroupTitle>
+          <CdownIcon /> Channels
+        </GroupTitle>
+        <ChannelItem href="#" active={true}>
+          asd
+        </ChannelItem>
+        <ChannelItem href="#">asd</ChannelItem>
+        <ChannelItem href="#">asd</ChannelItem>
+        <ChannelItem href="#">asd</ChannelItem>
+        <ChannelItem href="#">asd</ChannelItem>
+        <ChannelAdd href="#">Add Channels</ChannelAdd>
+      </GroupWrapper>
+      <GroupWrapper>
+        <GroupTitle>
+          <CdownIcon /> Direct messages
+        </GroupTitle>
+      </GroupWrapper>
     </SidebarWrapper>
   );
 };
