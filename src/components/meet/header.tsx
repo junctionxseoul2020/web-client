@@ -18,7 +18,16 @@ const MeetHeader: React.FC = () => {
             <ServiceLinkImg src="/imgs/zoom.png" />
           </ServiceLink>
           <ServiceLink>
-            <ServiceLinkImg src="https://piunikaweb.com/wp-content/uploads/2019/09/google_calendar_logo_banner.jpg" />
+            <ServiceLinkIconImg src="/imgs/google-calender.png" />
+          </ServiceLink>
+          <ServiceLink>
+            <ServiceLinkIconImg src="/imgs/google-docs.png" />
+          </ServiceLink>
+          <ServiceLink>
+            <ServiceLinkIconImg src="/imgs/google-presentation.png" />
+          </ServiceLink>
+          <ServiceLink>
+            <ServiceLinkIconImg src="/imgs/dots.png" />
           </ServiceLink>
         </FlexMiddle>
       </HeaderContent>
@@ -75,12 +84,21 @@ const ProfileName = styled.p`
 `;
 
 const ServiceLink = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 54px;
   height: 54px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #fafaff;
   border-radius: 50%;
   overflow: hidden;
+  margin-left: 20px;
+`;
+
+const ServiceLinkIconImg = styled.img`
+  width: 28px;
+  height: auto;
 `;
 
 const ServiceLinkImg = styled.img`
