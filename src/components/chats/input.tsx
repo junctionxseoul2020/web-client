@@ -17,9 +17,9 @@ const ChatInputComponent: React.FC<Props> = ({ onSubmit }) => {
   }, []);
   const handleKeyDown = useCallback(
     e => {
-      e.preventDefault();
       // Shift 키를 누르지 않고 엔터를 누르면
       if (!e.shiftKey && e.key === 'Enter') {
+        e.preventDefault();
         setValue('');
         onSubmit(value);
       }
