@@ -17,7 +17,7 @@ const GreetingContent = styled.div`
 `;
 
 const GreetingMyWrapper = styled.div`
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 50px;
   text-align: center;
 `;
@@ -89,10 +89,10 @@ const IndexPage: NextPage<{ users: User[]; channels: Channel[] }> = ({ users, ch
           </GreetingMyWrapper>
           <GreetingTeamGrid>
             {users.map(
-              other =>
+              (other, i) =>
                 other.id !== user?.id &&
                 other.photo && (
-                  <GreetingTeamItem>
+                  <GreetingTeamItem key={i}>
                     <GreetingImgWrapper width="80px" height="80px">
                       <GreetingImg src={other?.photo} />
                     </GreetingImgWrapper>
