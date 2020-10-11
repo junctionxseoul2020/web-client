@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { User } from '@/context/AuthContext';
 import UserAdd from '@/components/icons/user-add';
 import InfoIcon from '@/components/icons/info';
+import ProfilePicture from '@/components/ProfilePicture';
 
 const ChannelInfomationHeader: React.FC<{ name: string; members: User[] }> = ({
   name,
@@ -50,14 +51,6 @@ const ChannelInfomationHeader: React.FC<{ name: string; members: User[] }> = ({
     margin-left: 12px;
   `;
 
-  const UserProfilePic = styled.img`
-    width: 26px;
-    height: 26px;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-    border-radius: 50%;
-    margin-right: -4px;
-  `;
-
   return (
     <InfoHeaderWrapper>
       <div>
@@ -68,7 +61,11 @@ const ChannelInfomationHeader: React.FC<{ name: string; members: User[] }> = ({
         <UserProfileBox>
           {members &&
             members.map(user => (
-              <UserProfilePic src={user.photo || 'https://via.placeholder.com/150'} />
+              <ProfilePicture
+                src={user.photo || 'https://via.placeholder.com/150'}
+                width="26px"
+                height="26px"
+              />
             ))}
           <UserCount>{members?.length}</UserCount>
         </UserProfileBox>

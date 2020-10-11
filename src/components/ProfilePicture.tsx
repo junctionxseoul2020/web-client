@@ -15,6 +15,9 @@ const ProfilePicture: NextPage<{ src: string; width: string; height: string }> =
 };
 
 const ProfilePictureWrapper = styled.div<{ width: string; height: string }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: ${props => props.width};
   height: ${props => props.height};
   position: relative;
