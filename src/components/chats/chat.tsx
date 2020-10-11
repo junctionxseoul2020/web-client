@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import ProfilePicture from '../ProfilePicture';
+import dayjs from 'dayjs';
+import 'dayjs/locale/ko';
+
+dayjs.locale('ko');
 
 interface ChatComponentProps {
   nickname: string;
@@ -16,7 +20,7 @@ const ChatComponent: React.FC<ChatComponentProps> = React.memo(props => {
       <div>
         <div>
           <ChatNickname>{props.nickname}</ChatNickname>
-          <ChatTime>{props.time}</ChatTime>
+          <ChatTime>{dayjs(props.time).format('A HH:mm')}</ChatTime>
         </div>
         <ChatContent>{props.content}</ChatContent>
       </div>
