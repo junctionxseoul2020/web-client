@@ -8,11 +8,12 @@ import { Channel } from '@/pages/channel/[slug]';
 import ScrollableFeed from 'react-scrollable-feed';
 import { User } from '@/context/AuthContext';
 
-const Chat: React.FC<{ name: string; members: User[]; channels: Channel[] }> = ({
+const Chat: React.FC<{ name: string; members: User[]; channels: Channel[]; desc?: string }> = ({
   children,
   name,
   members,
   channels,
+  desc,
 }) => {
   const ChatWrapper = styled.div`
     display: grid;
@@ -34,7 +35,7 @@ const Chat: React.FC<{ name: string; members: User[]; channels: Channel[] }> = (
       <ChatWrapper>
         <Sidebar channels={channels} />
         <div>
-          <ChannelInfomationHeader name={name} members={members} />
+          <ChannelInfomationHeader name={name} members={members} desc={desc} />
           <ChatContent>
             <ScrollableFeed>
               <ChatInnerContent>{children}</ChatInnerContent>

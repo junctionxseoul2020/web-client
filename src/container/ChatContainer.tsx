@@ -13,8 +13,9 @@ type Props = {
   channel: Channel;
   channels: Channel[];
   type: 'lounge' | 'chat' | 'meet';
+  desc?: string;
 };
-export const ChatContainer = React.memo<Props>(({ channel, channels, type }) => {
+export const ChatContainer = React.memo<Props>(({ channel, channels, type, desc }) => {
   const { user } = useAuth();
   const { data, sendMessage } = useChat(channel.id, user?.id || 0, 'hello');
 
@@ -25,7 +26,12 @@ export const ChatContainer = React.memo<Props>(({ channel, channels, type }) => 
     [channel.id, sendMessage, user?.id],
   );
   return (
-    <ChatLayout name={'#' + channel.name} members={channel.participants} channels={channels}>
+    <ChatLayout
+      name={'#' + channel.name}
+      desc={desc}
+      members={channel.participants}
+      channels={channels}
+    >
       {type === 'lounge' && <GroupHeader type={GroupHeaderType.Lounge} />}
       {type === 'meet' && <GroupHeader type={GroupHeaderType.Meet} />}
       {type === 'chat' && <IntroBox title={'#' + channel.name} desc={channel.description} />}

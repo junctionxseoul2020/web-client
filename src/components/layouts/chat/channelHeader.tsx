@@ -5,9 +5,10 @@ import UserAdd from '@/components/icons/user-add';
 import InfoIcon from '@/components/icons/info';
 import ProfilePicture from '@/components/ProfilePicture';
 
-const ChannelInfomationHeader: React.FC<{ name: string; members: User[] }> = ({
+const ChannelInfomationHeader: React.FC<{ name: string; members: User[]; desc?: string }> = ({
   name,
   members,
+  desc,
 }) => {
   const InfoHeaderWrapper = styled.div`
     display: flex;
@@ -55,7 +56,7 @@ const ChannelInfomationHeader: React.FC<{ name: string; members: User[] }> = ({
     <InfoHeaderWrapper>
       <div>
         <ChannelName>{name}</ChannelName>
-        <ChannelDesc>Add a topic</ChannelDesc>
+        <ChannelDesc>{desc || 'Add a topic'}</ChannelDesc>
       </div>
       <RightSide>
         <UserProfileBox>
