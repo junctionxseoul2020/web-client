@@ -7,6 +7,7 @@ import globalStyles from '@/styles/global';
 import { SocketProvider } from '@/context/SocketSontext';
 import { AuthProvider } from '@/context/AuthContext';
 import { LoginContainer } from '@/container/LoginContainer';
+import Head from 'next/head';
 
 import { RecoilRoot } from 'recoil';
 
@@ -14,6 +15,9 @@ const MyApp = ({ Component, pageProps }: AppProps): React.ReactNode => {
   return (
     <CacheProvider value={cache}>
       {globalStyles}
+      <Head>
+        <title>@work</title>
+      </Head>
       <AuthProvider>
         <LoginContainer>
           <SocketProvider>

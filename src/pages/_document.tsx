@@ -24,7 +24,6 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>@work</title>
           <link rel="shortcut icon" href="/favicon.ico?v=2" />
           <link rel="icon" href="/favicon.ico?v=2" />
         </Head>
