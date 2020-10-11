@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 
 interface FullpageLayoutProps {
   bgImage?: string;
+  noFooter?: boolean;
 }
 
 const FullpageLayout: NextPage<FullpageLayoutProps> = ({ children }, props) => {
@@ -14,10 +15,12 @@ const FullpageLayout: NextPage<FullpageLayoutProps> = ({ children }, props) => {
           <Logo>@work</Logo>
         </LogoWrapper>
         <ContentBox>{children}</ContentBox>
-        <FooterWrapper>
-          <FooterLink>Privacy & Link</FooterLink>
-          <FooterLink>Contact Us</FooterLink>
-        </FooterWrapper>
+        {props.noFooter !== true && (
+          <FooterWrapper>
+            <FooterLink>Privacy & Link</FooterLink>
+            <FooterLink>Contact Us</FooterLink>
+          </FooterWrapper>
+        )}
       </ContentWrapper>
     </FullpageLayoutWrapper>
   );
