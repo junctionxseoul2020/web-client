@@ -5,6 +5,7 @@ import DefaultLayout from '@/components/layouts/default';
 import Sidebar from './sidebar';
 import ChannelInfomationHeader from './channelHeader';
 import { Channel } from '@/pages/channel/[slug]';
+import ScrollableFeed from 'react-scrollable-feed';
 
 const Chat: React.FC<{ name: string; memberCount: number; channels: Channel[] }> = ({
   children,
@@ -18,6 +19,14 @@ const Chat: React.FC<{ name: string; memberCount: number; channels: Channel[] }>
     width: 100%;
     height: 100%;
   `;
+  const ChatContent = styled.div`
+    position: relative;
+    height: calc(100vh - 102px);
+    overflow: auto;
+  `;
+  const ChatInnerContent = styled.div`
+    padding-bottom: 100px;
+  `;
 
   return (
     <DefaultLayout>
@@ -25,7 +34,11 @@ const Chat: React.FC<{ name: string; memberCount: number; channels: Channel[] }>
         <Sidebar channels={channels} />
         <div>
           <ChannelInfomationHeader name={name} memberCount={memberCount} />
-          {children}
+          <ChatContent>
+            <ScrollableFeed>
+              <ChatInnerContent>{children}</ChatInnerContent>
+            </ScrollableFeed>
+          </ChatContent>
         </div>
       </ChatWrapper>
     </DefaultLayout>
