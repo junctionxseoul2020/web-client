@@ -32,8 +32,12 @@ export const ChatContainer = React.memo<Props>(({ channel, channels, type, desc 
       members={channel.participants}
       channels={channels}
     >
-      {type === 'lounge' && <GroupHeader type={GroupHeaderType.Lounge} />}
-      {type === 'meet' && <GroupHeader type={GroupHeaderType.Meet} />}
+      {type === 'lounge' && (
+        <GroupHeader type={GroupHeaderType.Lounge} users={channel.participants.slice(0, 4)} />
+      )}
+      {type === 'meet' && (
+        <GroupHeader type={GroupHeaderType.Meet} users={channel.participants.slice(0, 4)} />
+      )}
       {type === 'chat' && <IntroBox title={'#' + channel.name} desc={channel.description} />}
       <ChatSeperator />
       {data.map(chat => (
