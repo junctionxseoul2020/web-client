@@ -15,7 +15,7 @@ const AddConferenceModal: React.FC = () => {
   return (
     <ModalContentWrapper>
       <ModalTitle>
-        Create conference{' '}
+        Create conference
         <ModalCloseButton onClick={() => closeModal()}>
           <CloseIcon />
         </ModalCloseButton>
