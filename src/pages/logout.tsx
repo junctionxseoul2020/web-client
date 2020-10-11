@@ -31,7 +31,7 @@ const LoginPage: NextPage = () => {
         <LoginFormWrapper>
           <LoginFormTitle>You are done for today!</LoginFormTitle>
           <LoginProfileWrapper>
-            <ProfilePicture src={user?.photo} width="128px" height="128px" />
+            {user?.photo && <ProfilePicture src={user.photo} width="128px" height="128px" />}
             <LoginProfileName>{user?.name}</LoginProfileName>
           </LoginProfileWrapper>
           <LoginFormDidntFoundText>
