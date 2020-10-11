@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import ProfilePicture from '../ProfilePicture';
 
 interface ChatComponentProps {
   nickname: string;
@@ -11,7 +12,7 @@ interface ChatComponentProps {
 const ChatComponent: React.FC<ChatComponentProps> = React.memo(props => {
   return (
     <ChatWrapper>
-      <ChatProfileImg src={props.photo} />
+      <ProfilePicture src={props.photo} width="36px" height="36px" />
       <div>
         <div>
           <ChatNickname>{props.nickname}</ChatNickname>
@@ -28,13 +29,6 @@ const ChatWrapper = styled.div`
   grid-template-columns: 36px auto;
   grid-column-gap: 10px;
   padding: 14px 18px;
-`;
-
-const ChatProfileImg = styled.img`
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
 
 const ChatNickname = styled.span`
