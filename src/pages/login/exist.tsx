@@ -35,7 +35,7 @@ const ProfilePage: NextPage = () => {
       <FullpageLayout>
         <LoginFormWrapper>
           <LoginProfileWrapper>
-            <ProfilePicture src={user?.photo} width="128px" height="128px" />
+            <ProfilePicture src={user?.photo || ''} width="128px" height="128px" />
             <LoginProfileName>{user?.name}</LoginProfileName>
           </LoginProfileWrapper>
           <LoginFormButton onClick={handleLogIn}>Continue</LoginFormButton>
