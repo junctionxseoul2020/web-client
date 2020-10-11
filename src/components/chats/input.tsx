@@ -15,7 +15,7 @@ const ChatInputComponent: React.FC<Props> = ({ onSubmit }) => {
   const handleChange = useCallback(event => {
     setValue(event.target.value);
   }, []);
-  const handleKeyDown = useCallback(
+  const handleKeypress = useCallback(
     e => {
       // Shift 키를 누르지 않고 엔터를 누르면
       if (!e.shiftKey && e.key === 'Enter') {
@@ -34,7 +34,7 @@ const ChatInputComponent: React.FC<Props> = ({ onSubmit }) => {
           placeholder="Send messages"
           value={value}
           onChange={handleChange}
-          onKeyDown={handleKeyDown}
+          onKeyPress={handleKeypress}
         />
         <SendButton onClick={handleSubmit}>
           <SendIcon />
