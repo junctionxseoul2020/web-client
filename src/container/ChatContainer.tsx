@@ -7,6 +7,7 @@ import React, { useCallback } from 'react';
 import { useChat } from '@/hooks/useChat';
 import { Channel } from '@/pages/channel/[slug]';
 import GroupHeader, { GroupHeaderType } from '@/components/GroupHeader';
+import { useAuth } from '@/context/AuthContext';
 
 type Props = {
   channel: Channel;
@@ -14,11 +15,12 @@ type Props = {
   type: 'lounge' | 'chat' | 'meet';
 };
 export const ChatContainer = React.memo<Props>(({ channel, channels, type }) => {
-  const { data, sendMessage } = useChat(channel.id, 6, 'hello');
+  const { user } = useAuth();
+  const { data, sendMessage } = useChat(channel.id, user?.id, 'hello');
 
   const handleSend = useCallback(
     message => {
-      sendMessage(channel.id, 6, message);
+      sendMessage(channel.id, user?.id, message);
     },
     [channel.id, sendMessage],
   );
