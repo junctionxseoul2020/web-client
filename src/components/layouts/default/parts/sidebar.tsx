@@ -18,7 +18,7 @@ dayjs.locale('ko');
 const SidebarComponent: React.FC = React.memo(() => {
   const { openModal } = useModal();
   const { user } = useAuth();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     requestAPI<Conference>('/conference/my', { userId: user?.id }).then(res => {
