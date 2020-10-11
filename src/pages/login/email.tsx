@@ -7,8 +7,8 @@ import { useAuth, User } from '@/context/AuthContext';
 import { useRouter } from 'next/router';
 
 const EmailPage: NextPage = () => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const { setLoggedIn } = useAuth();
   const { push } = useRouter();
   const handleEmailChange = useCallback(event => {
