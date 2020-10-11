@@ -4,16 +4,10 @@ import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
+import ProfilePicture from '@/components/ProfilePicture';
 
 const LoginProfileWrapper = styled.div`
   text-align: center;
-`;
-const LoginProfileImg = styled.img`
-  border-radius: 50%;
-  width: 128px;
-  height: 128px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  margin-bottom: 12px;
 `;
 const LoginProfileName = styled.p`
   margin-bottom: 52px;
@@ -23,7 +17,7 @@ const LoginProfileName = styled.p`
 `;
 
 const LoginPage: NextPage = () => {
-  const { setLoggedOut } = useAuth();
+  const { user, setLoggedOut } = useAuth();
 
   useEffect(() => {
     setTimeout(() => {
@@ -37,14 +31,11 @@ const LoginPage: NextPage = () => {
         <LoginFormWrapper>
           <LoginFormTitle>You are done for today!</LoginFormTitle>
           <LoginProfileWrapper>
-            <LoginProfileImg src="https://via.placeholder.com/500" />
-            <LoginProfileName>Nickname</LoginProfileName>
+            <ProfilePicture src={user?.photo} width="128px" height="128px" />
+            <LoginProfileName>{user?.name}</LoginProfileName>
           </LoginProfileWrapper>
           <LoginFormDidntFoundText>
-            Did you forgot something?{' '}
-            <Link href="/" passHref>
-              <LoginAnchor>Take me back to workspace</LoginAnchor>
-            </Link>
+            After 5 seconds, go to the login screen.
           </LoginFormDidntFoundText>
         </LoginFormWrapper>
       </FullpageLayout>
