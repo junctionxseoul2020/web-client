@@ -73,7 +73,7 @@ const GreetingTeamSubText = styled.span`
 const IndexPage: NextPage<{ users: User[]; channels: Channel[] }> = ({ users, channels }) => {
   const { user } = useAuth();
   return (
-    <Chat name="JunctionX Seoul 2020" memberCount={users.length || 0} channels={channels}>
+    <Chat name="JunctionX Seoul 2020" members={users} channels={channels}>
       <HeaderContainer>
         <h1>Welcome to JunctionX Seoul 2020</h1>
       </HeaderContainer>

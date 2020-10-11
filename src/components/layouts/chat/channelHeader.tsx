@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import InfoIcon from '@/components/icons/info';
+import { User } from '@/context/AuthContext';
 import UserAdd from '@/components/icons/user-add';
+import InfoIcon from '@/components/icons/info';
 
-const ChannelInfomationHeader: React.FC<{ name: string; memberCount: number }> = ({
+const ChannelInfomationHeader: React.FC<{ name: string; members: User[] }> = ({
   name,
-  memberCount,
+  members,
 }) => {
   const InfoHeaderWrapper = styled.div`
     display: flex;
@@ -65,10 +66,11 @@ const ChannelInfomationHeader: React.FC<{ name: string; memberCount: number }> =
       </div>
       <RightSide>
         <UserProfileBox>
-          <UserProfilePic src="https://via.placeholder.com/150" />
-          <UserProfilePic src="https://via.placeholder.com/150" />
-          <UserProfilePic src="https://via.placeholder.com/150" />
-          <UserCount>{memberCount}</UserCount>
+          {members &&
+            members.map(user => (
+              <UserProfilePic src={user.photo || 'https://via.placeholder.com/150'} />
+            ))}
+          <UserCount>{members?.length}</UserCount>
         </UserProfileBox>
         <UserAdd />
         <InfoIcon />
