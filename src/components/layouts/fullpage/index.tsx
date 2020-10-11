@@ -7,14 +7,14 @@ interface FullpageLayoutProps {
   noFooter?: boolean;
 }
 
-const FullpageLayout: NextPage<FullpageLayoutProps> = ({ children }, props) => {
+const FullpageLayout: NextPage<FullpageLayoutProps> = props => {
   return (
     <FullpageLayoutWrapper img={props.bgImage}>
       <ContentWrapper>
         <LogoWrapper>
           <Logo>@work</Logo>
         </LogoWrapper>
-        <ContentBox>{children}</ContentBox>
+        <ContentBox>{props.children}</ContentBox>
         {props.noFooter !== true && (
           <FooterWrapper>
             <FooterLink>Privacy & Link</FooterLink>
