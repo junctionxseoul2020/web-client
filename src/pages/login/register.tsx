@@ -7,10 +7,10 @@ import { useRouter } from 'next/router';
 import { requestAPI } from '@/utils/APIUtil';
 
 const RegisterPage: NextPage = () => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [name, setName] = useState();
-  const [hashCode, setHashCode] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [hashCode, setHashCode] = useState('');
   const { push } = useRouter();
 
   const handleEmailChange = useCallback(event => {
