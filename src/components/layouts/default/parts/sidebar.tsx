@@ -21,7 +21,7 @@ const SidebarComponent: React.FC = React.memo(() => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    requestAPI('/conference/my', { userId: user?.id }).then(res => {
+    requestAPI<Conference>('/conference/my', { userId: user?.id }).then(res => {
       setData(res);
     });
   }, [user?.id]);
