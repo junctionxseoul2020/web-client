@@ -56,6 +56,7 @@ const GreetingMyDescription = styled.p`
 const GreetingTeamItem = styled.div`
   width: 100%;
   text-align: center;
+  margin-bottom: 24px;
 `;
 const GreetingTeamSubText = styled.span`
   display: block;
