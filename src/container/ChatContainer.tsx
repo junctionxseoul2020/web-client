@@ -22,7 +22,7 @@ export const ChatContainer = React.memo<Props>(({ channel, channels, type }) => 
     message => {
       sendMessage(channel.id, user?.id || 0, message);
     },
-    [channel.id, sendMessage],
+    [channel.id, sendMessage, user?.id],
   );
   return (
     <ChatLayout
