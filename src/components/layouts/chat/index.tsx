@@ -6,11 +6,12 @@ import Sidebar from './sidebar';
 import ChannelInfomationHeader from './channelHeader';
 import { Channel } from '@/pages/channel/[slug]';
 import ScrollableFeed from 'react-scrollable-feed';
+import { User } from '@/context/AuthContext';
 
-const Chat: React.FC<{ name: string; memberCount: number; channels: Channel[] }> = ({
+const Chat: React.FC<{ name: string; members: User[]; channels: Channel[] }> = ({
   children,
   name,
-  memberCount,
+  members,
   channels,
 }) => {
   const ChatWrapper = styled.div`
@@ -33,7 +34,7 @@ const Chat: React.FC<{ name: string; memberCount: number; channels: Channel[] }>
       <ChatWrapper>
         <Sidebar channels={channels} />
         <div>
-          <ChannelInfomationHeader name={name} memberCount={memberCount} />
+          <ChannelInfomationHeader name={name} members={members} />
           <ChatContent>
             <ScrollableFeed>
               <ChatInnerContent>{children}</ChatInnerContent>

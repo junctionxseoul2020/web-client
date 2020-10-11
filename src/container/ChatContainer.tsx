@@ -25,11 +25,7 @@ export const ChatContainer = React.memo<Props>(({ channel, channels, type }) => 
     [channel.id, sendMessage, user?.id],
   );
   return (
-    <ChatLayout
-      name={'#' + channel.name}
-      memberCount={channel.participants.length || 0}
-      channels={channels}
-    >
+    <ChatLayout name={'#' + channel.name} members={channel.participants} channels={channels}>
       {type === 'lounge' && <GroupHeader type={GroupHeaderType.Lounge} />}
       {type === 'meet' && <GroupHeader type={GroupHeaderType.Meet} />}
       {type === 'chat' && <IntroBox title={'#' + channel.name} desc={channel.description} />}
