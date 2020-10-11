@@ -15,7 +15,7 @@ const LoginPage: NextPage = () => {
         <LoginFormWrapper>
           <LoginFormTitle>Sign in to your workspace</LoginFormTitle>
           <LoginFormDescription>Enter your workspace's URL.</LoginFormDescription>
-          <LoginFormInput value="junctionX2020.a-work.com" />
+          <LoginFormInput value="junctionX2020.a-work.com" readOnly />
           <LoginFormButton onClick={handleSubmit}>Next</LoginFormButton>
           <LoginFormDidntFoundText>
             Don’t know your workspace URL? <LoginAnchor>Find your workspaces</LoginAnchor>

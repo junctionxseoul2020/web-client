@@ -1,7 +1,9 @@
 import FullpageLayout from '@/components/layouts/fullpage';
 import { NextPage } from 'next';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
+import Link from 'next/link';
+import { useAuth, User } from '@/context/AuthContext';
 
 const LoginProfileWrapper = styled.div`
   text-align: center;
@@ -21,6 +23,9 @@ const LoginProfileName = styled.p`
 `;
 
 const LoginPage: NextPage = () => {
+  const { setLoggedOut } = useAuth();
+  setLoggedOut();
+
   return (
     <>
       <FullpageLayout>
@@ -31,7 +36,10 @@ const LoginPage: NextPage = () => {
             <LoginProfileName>Nickname</LoginProfileName>
           </LoginProfileWrapper>
           <LoginFormDidntFoundText>
-            Did you forgot something? <LoginAnchor>Take me back to workspace</LoginAnchor>
+            Did you forgot something?{' '}
+            <Link href="/" passHref>
+              <LoginAnchor>Take me back to workspace</LoginAnchor>
+            </Link>
           </LoginFormDidntFoundText>
         </LoginFormWrapper>
       </FullpageLayout>
