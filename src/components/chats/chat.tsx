@@ -5,12 +5,13 @@ interface ChatComponentProps {
   nickname: string;
   time: string;
   content: string | React.ReactNode;
+  photo: string;
 }
 
 const ChatComponent: React.FC<ChatComponentProps> = React.memo(props => {
   return (
     <ChatWrapper>
-      <ChatProfileImg src="https://via.placeholder.com/150" />
+      <ChatProfileImg src={props.photo} />
       <div>
         <div>
           <ChatNickname>{props.nickname}</ChatNickname>

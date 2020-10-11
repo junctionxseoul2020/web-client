@@ -39,6 +39,7 @@ export const ChatContainer = React.memo<Props>(({ channel, channels, type }) => 
           nickname={chat.author.name}
           time={chat.createdAt}
           content={chat.text}
+          photo={chat.author.photo}
           key={chat.id}
         />
       ))}
