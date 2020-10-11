@@ -27,7 +27,7 @@ const ProfilePage: NextPage = () => {
     await push('/login/email');
   }, [push, setLoggedOut]);
   const handleLogIn = useCallback(async () => {
-    await push('/');
+    await push('/login/splash/1');
   }, [push]);
 
   return (
