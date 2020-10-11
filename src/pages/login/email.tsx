@@ -25,7 +25,7 @@ const EmailPage: NextPage = () => {
     }
   }, [email, password, push, setLoggedIn]);
   const handleRegister = useCallback(async () => {
-    await push('/register');
+    await push('/login/register');
   }, [push]);
 
   return (
