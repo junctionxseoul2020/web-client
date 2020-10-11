@@ -13,6 +13,7 @@ const ChatSeperator = React.memo(() => {
 const SepWrapper = styled.div`
   position: relative;
   height: 30px;
+  margin-top: 20px;
 `;
 const Line = styled.hr`
   border-top: 1px solid #e0e2ea;
