@@ -4,18 +4,14 @@ import React, { useCallback } from 'react';
 import styled from '@emotion/styled';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/router';
+import ProfilePicture from '@/components/ProfilePicture';
 
 const LoginProfileWrapper = styled.div`
   text-align: center;
 `;
-const LoginProfileImg = styled.img`
-  border-radius: 50%;
-  width: 128px;
-  height: 128px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  margin-bottom: 12px;
-`;
+
 const LoginProfileName = styled.p`
+  margin-top: 12px;
   margin-bottom: 52px;
   font-size: 18px;
   font-weight: 600;
@@ -39,7 +35,7 @@ const ProfilePage: NextPage = () => {
       <FullpageLayout>
         <LoginFormWrapper>
           <LoginProfileWrapper>
-            <LoginProfileImg src={user?.photo} />
+            <ProfilePicture src={user?.photo} width="128px" height="128px" />
             <LoginProfileName>{user?.name}</LoginProfileName>
           </LoginProfileWrapper>
           <LoginFormButton onClick={handleLogIn}>Continue</LoginFormButton>
