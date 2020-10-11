@@ -14,11 +14,11 @@ const FullpageLayout: NextPage<FullpageLayoutProps> = ({ children }, props) => {
           <Logo>@work</Logo>
         </LogoWrapper>
         <ContentBox>{children}</ContentBox>
+        <FooterWrapper>
+          <FooterLink>Privacy & Link</FooterLink>
+          <FooterLink>Contact Us</FooterLink>
+        </FooterWrapper>
       </ContentWrapper>
-      <FooterWrapper>
-        <FooterLink>Privacy & Link</FooterLink>
-        <FooterLink>Contact Us</FooterLink>
-      </FooterWrapper>
     </FullpageLayoutWrapper>
   );
 };
@@ -55,8 +55,7 @@ const Logo = styled.h1`
 const ContentBox = styled.div``;
 
 const FooterWrapper = styled.div`
-  position: absolute;
-  bottom: 40px;
+  margin-top: 40px;
   width: 100%;
   text-align: center;
 `;
