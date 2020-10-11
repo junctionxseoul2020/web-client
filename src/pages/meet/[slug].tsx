@@ -16,6 +16,7 @@ const MeetPage: NextPage<Props> = ({ data, channels }) => {
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const data = await requestAPI<Channel>('/conference/info', { id: query.slug });
   const channels = await requestAPI<Channel[]>('/channel/list', { workspaceId: 1 });
+  console.log(data);
   return { props: { data, channels } };
 };
 
