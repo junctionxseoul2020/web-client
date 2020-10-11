@@ -17,7 +17,7 @@ const SidebarComponent: React.FC = React.memo(() => {
       <ItemComponent href="/lounge" icon={<Coffee />} />
       <ItemComponent icon={<PlusIcon />} onClick={() => openModal(Modal.AddConference)} />
       <SidebarBottom>
-        <ItemComponent icon={<LogOff />} />
+        <ItemComponent icon={<LogOff />} href="/logout" />
       </SidebarBottom>
     </SidebarWrapper>
   );
