@@ -16,11 +16,11 @@ type Props = {
 };
 export const ChatContainer = React.memo<Props>(({ channel, channels, type }) => {
   const { user } = useAuth();
-  const { data, sendMessage } = useChat(channel.id, user?.id, 'hello');
+  const { data, sendMessage } = useChat(channel.id, user?.id || 0, 'hello');
 
   const handleSend = useCallback(
     message => {
-      sendMessage(channel.id, user?.id, message);
+      sendMessage(channel.id, user?.id || 0, message);
     },
     [channel.id, sendMessage],
   );
