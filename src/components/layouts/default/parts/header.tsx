@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import HeaderSearch from './search';
 import Alarm from '@/components/icons/alarm';
+import { useAuth } from '@/context/AuthContext';
 
 const HeaderComponent: React.FC = () => {
   const HeaderWrapper = styled.div`
@@ -49,6 +50,8 @@ const HeaderComponent: React.FC = () => {
     }
   `;
 
+  const { user } = useAuth();
+
   return (
     <HeaderWrapper>
       <div></div>
@@ -58,7 +61,7 @@ const HeaderComponent: React.FC = () => {
       </SearchSection>
       <div>
         <UserSection>
-          <UserProfilePicture src="https://via.placeholder.com/150" />
+          <UserProfilePicture src={user?.photo || 'https://via.placeholder.com/150'} />
           <UserProfileBadge className="active" />
         </UserSection>
       </div>
