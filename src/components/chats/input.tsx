@@ -30,7 +30,7 @@ const ChatInputComponent: React.FC<Props> = ({ onSubmit }) => {
     <InputWrapper>
       <InputSection>
         <Input
-          placeholder="Message #channel_here"
+          placeholder="Send messages"
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
@@ -49,6 +49,7 @@ const InputWrapper = styled.div`
   left: 342px;
   right: 13px;
   padding: 18px;
+  background: #fff;
 `;
 const InputSection = styled.div`
   position: relative;
