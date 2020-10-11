@@ -86,7 +86,7 @@ const IndexPage: NextPage<{ users: User[]; channels: Channel[] }> = ({ users, ch
             <GreetingMyTitle>
               <b>{user?.name}</b>
             </GreetingMyTitle>
-            <GreetingMyDescription>Team Zerohouse / design team</GreetingMyDescription>
+            <GreetingMyDescription>Team atwork</GreetingMyDescription>
           </GreetingMyWrapper>
           <GreetingTeamGrid>
             {users.map(
@@ -99,7 +99,7 @@ const IndexPage: NextPage<{ users: User[]; channels: Channel[] }> = ({ users, ch
                     </GreetingImgWrapper>
                     <GreetingTeamSubText>
                       {other?.name}
-                      <span className="sub">design team</span>
+                      <span className="sub">member</span>
                     </GreetingTeamSubText>
                   </GreetingTeamItem>
                 ),
